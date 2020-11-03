@@ -1,8 +1,8 @@
 ﻿#shopTitle {
-    border: 2px solid black;
-    padding: 20px;
+    border: 3px solid black;
+    padding: 50px;
     margin: 20px;
-    margin-top: 40px;
+    width: 50%;
 }
 
 #shopTitle p {
@@ -24,10 +24,10 @@
     font-size: 1.7em;
     text-transform: uppercase;
     font-weight: bold;
+
 }
 
 .filterHeader{
-    font-size: 1.5em;
 }
 
 #filterColor{

@@ -6,16 +6,11 @@ using System.Web.Mvc;
 
 namespace v2.Controllers
 {
-    public class HomeController : Controller
+    public class UserController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Connexion()
         { return View(); }
-
-        public ActionResult Shop()
+        public ActionResult CreateAccount()
         { return View(); }
-
-        public ActionResult Commands()
-        { return View(); }
-
     }
 }

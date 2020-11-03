@@ -117,25 +117,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADO\ADO_Basket.cs" />
+    <Compile Include="ADO\ADO_Basketitem.cs" />
+    <Compile Include="ADO\ADO_ConnSQL.cs" />
+    <Compile Include="ADO\ADO_Imgproduct.cs" />
+    <Compile Include="ADO\ADO_Order.cs" />
+    <Compile Include="ADO\ADO_User.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Job\Job_User.cs" />
+    <Compile Include="Models\Cls_Basket.cs" />
+    <Compile Include="Models\Cls_Basketitem.cs" />
+    <Compile Include="Models\Cls_Imgproduct.cs" />
+    <Compile Include="Models\Cls_Order.cs" />
+    <Compile Include="Models\Cls_Product.cs" />
+    <Compile Include="Models\Cls_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\Req_User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mainStyle.css" />
     <Content Include="Content\shopStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -160,13 +175,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\User\Connexion.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Shop.cshtml" />
+    <Content Include="Views\Home\Commands.cshtml" />
+    <Content Include="Views\User\CreateAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
