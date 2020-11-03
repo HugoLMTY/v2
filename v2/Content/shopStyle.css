@@ -1,0 +1,40 @@
+﻿#shopTitle {
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
+    margin-top: 40px;
+}
+
+#shopTitle p {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+
+#shopFilter{
+    background: #EEEEEE;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#filterTitle{
+    font-style: italic;
+    text-align: center;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.filterHeader{
+    font-size: 1.5em;
+}
+
+#filterColor{
+    padding: 3px;
+}
+
+.filterSeparator{
+    border-bottom: 1px solid lightgray;
+    margin: 15px;
+}
