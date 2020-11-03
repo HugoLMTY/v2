@@ -1,0 +1,30 @@
+﻿<div class="jumbotron">
+    <h1 class="display-4">Créez votre compte</h1>
+    <p>page de connexion balh blah bnlah nlah blah labh</p>
+    <hr class="my-4" />
+    <p class="lead">
+        <form action="/" method="post" class="row">
+
+            <div class="form-group col-5">
+                <label for="loginEmail">
+                    Votre mail:
+                </label>
+                <input class="form-control" type="email" name="loginEmail" id="loginEmailHolder" placeholder="Rentrez votre adresse mail" />
+                <small id="loginMailInfo" class="form-text text-muted">ahah mail go sell money go brrr</small>
+            </div>
+
+            <div class="form-group col-5">
+                <label for="loginEpword">
+                    Votre pword:
+                </label>
+                <input class="form-control" type="password" name="loginEpword" id="loginEpwordHolder" placeholder="Rentrez votre pword" />
+            </div>
+
+            <div class="col-1"></div>
+
+            @Html.ActionLink("Créer un compte", "ConnexionAccess", "Login", new { @class = "btn" })
+            @Html.ActionLink("Se connecter", "AccountCreate", "Login", new { @class = "btn btn-primary" })
+
+        </form>
+    </p>
+</div>

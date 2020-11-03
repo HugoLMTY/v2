@@ -1,0 +1,9 @@
+﻿.nav-link{
+    font-size: 1.5em;
+}
+
+.navSeparator{
+    border-right: 2.5px solid lightgray;
+    border-radius: 40%;
+    margin: 10px;
+}
