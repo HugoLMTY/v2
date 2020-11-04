@@ -1,0 +1,2 @@
+D:\YNOV\YDAYS\Projet_3D\v2\v2\obj\Debug\v2.csprojAssemblyReference.cache
+D:\YNOV\YDAYS\Projet_3D\v2\v2\obj\Debug\v2.csproj.CoreCompileInputs.cache
