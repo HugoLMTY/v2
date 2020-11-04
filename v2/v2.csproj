@@ -146,6 +146,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\indexStyle.css" />
     <Content Include="Content\mainStyle.css" />
     <Content Include="Content\shopStyle.css" />
     <Content Include="favicon.ico" />
@@ -175,14 +176,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\User\Connexion.cshtml" />
+    <Content Include="Views\Home\Connexion.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Shop.cshtml" />
     <Content Include="Views\Home\Commands.cshtml" />
-    <Content Include="Views\User\CreateAccount.cshtml" />
+    <Content Include="Views\Home\CreateAccount.cshtml" />
+    <Content Include="Views\Home\test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

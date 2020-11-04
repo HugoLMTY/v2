@@ -23,6 +23,11 @@ namespace v2.Models
         private string _Firstname_User;
         public string Firstname_User
         { get => _Firstname_User; set => _Firstname_User = value; }
+        
+        
+        private string _Type_User;
+        public string Type_User
+        { get => _Type_User; set => _Type_User = value; }
 
 
         private string _Mail_User;

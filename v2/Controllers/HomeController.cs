@@ -17,5 +17,10 @@ namespace v2.Controllers
         public ActionResult Commands()
         { return View(); }
 
+        public ActionResult Connexion()
+        { return View(); }
+
+        public ActionResult CreateAccount()
+        { return View(); }
     }
 }

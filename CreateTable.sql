@@ -1,8 +1,11 @@
+use DB_Ynov
+
 CREATE TABLE T_User
 (
 	id_user int not null primary key,
 	name_user char not null,
 	firstname_user char not null,
+	type_user int not null,
 	mail_user char not null,
 	age_user int,
 	adress_user char not null,

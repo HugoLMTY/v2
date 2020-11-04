@@ -25,6 +25,7 @@ namespace v2
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/mainStyle.css",
                 "~/Content/shopStyle.css",
+                "~/Content/indexStyle.css",
                 "~/Content/bootstrap.css",
                 "~/Content/site.css")); ;
         }
