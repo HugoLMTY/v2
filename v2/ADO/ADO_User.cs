@@ -18,7 +18,7 @@ namespace v2.ADO
                 v_User.ID_User = Convert.ToInt32(p_dataReader["ID_User"]);
                 v_User.Name_User = Convert.ToString(p_dataReader["Name_User"]);
                 v_User.Firstname_User = Convert.ToString(p_dataReader["Firstname_User"]);
-                v_User.Type_user = Convert.ToString(p_dataReader["Type_user"]);
+                v_User.Type_User = Convert.ToString(p_dataReader["Type_user"]);
                 v_User.Mail_User = Convert.ToString(p_dataReader["Mail_User"]);
                 v_User.Age_User = Convert.ToInt32(p_dataReader["Age_User"]);
                 v_User.Adress_User = Convert.ToString(p_dataReader["Adress_User"]);

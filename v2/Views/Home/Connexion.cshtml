@@ -1,4 +1,6 @@
-﻿<div class="jumbotron">
+﻿@using v2.Job
+
+<div class="jumbotron">
     <h1 class="display-4">Connectez vous</h1>
     <p>page de connexion balh blah bnlah nlah blah labh</p>
     <hr class="my-4" />
@@ -23,8 +25,14 @@
 
             <div class="col-1"></div>
 
-            @Html.ActionLink("Se connecter", "ConnexionAccess", "Login", new { @class = "btn btn-primary" })
-            @Html.ActionLink("Créer un compte", "AccountCreate", "Login", new { @class = "btn" })
+            @foreach (var item in Job_User.fct_GetListUser())
+            {
+                <p>@item.ID_User</p>
+                <p>@item.Name_User</p>
+            }
+
+            @Html.ActionLink("Se connecter", "ConnexionAccess", "User", new { @class = "btn btn-primary" })
+            @Html.ActionLink("Créer un compte", "CreateAccount", "User", new { @class = "btn" })
 
         </form>
     </p>
