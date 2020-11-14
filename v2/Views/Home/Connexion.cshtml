@@ -1,6 +1,7 @@
 ﻿@using v2.Job
+@model v2.Models.Cls_User
 
-<div class="jumbotron">
+@*<div class="jumbotron">
     <h1 class="display-4">Connectez vous</h1>
     <p>page de connexion balh blah bnlah nlah blah labh</p>
     <hr class="my-4" />
@@ -14,8 +15,8 @@
                 <input class="form-control" type="email" name="loginEmail" id="loginEmailHolder" placeholder="Rentrez votre adresse mail" />
                 <small id="loginMailInfo" class="form-text text-muted">ahah mail go sell money go brrr</small>
             </div>
-            
-            
+
+
             <div class="form-group col-5">
                 <label for="loginEpword">
                     Votre pword:
@@ -34,6 +35,54 @@
             @Html.ActionLink("Se connecter", "ConnexionAccess", "User", new { @class = "btn btn-primary" })
             @Html.ActionLink("Créer un compte", "CreateAccount", "User", new { @class = "btn" })
 
-        </form>
-    </p>
+        </form>*@
+
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td></td>
+            <td>Conn</td>
+        </tr>
+
+        <tr>
+            <td> @Html.LabelFor(model => model.Mail_User) </td>
+            <td>  @Html.EditorFor(model => model.Mail_User) </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> @Html.ValidationMessageFor(model => model.Mail_User) </td>
+        </tr>
+
+
+        <tr>
+            <td> @Html.LabelFor(model => model.Pword_User) </td>
+            <td> @Html.EditorFor(model => model.Pword_User) </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> @Html.ValidationMessageFor(model => model.Pword_User) </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <label class="field-validation-error">@Html.DisplayFor(model => model.loginWrong) </label>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" name="" value="conn" />
+                <input type="reset" name="" value="reset" />
+            </td>
+        </tr>
+    </table>
+}
+
 </div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

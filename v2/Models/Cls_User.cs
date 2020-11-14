@@ -1,6 +1,8 @@
 ﻿using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.EnterpriseServices.Internal;
 using System.Linq;
 using System.Security.Permissions;
@@ -8,7 +10,7 @@ using System.Web;
 
 namespace v2.Models
 {
-    public class Cls_User
+    public partial class Cls_User
     {
         private int _ID_User;
         public int ID_User
@@ -31,9 +33,11 @@ namespace v2.Models
 
 
         private string _Mail_User;
+        [DisplayName("Adresse Mail")]
+        [Required(ErrorMessage = "Merci de renseigner votre mail")]
         public string Mail_User
         { get => _Mail_User; set => _Mail_User = value; }
-
+        
 
         private int _Age_User;
         public int Age_User
@@ -50,6 +54,9 @@ namespace v2.Models
         { get => _Tel_User; set => _Tel_User = value; }
 
         private string _Pword_User;
+        [DisplayName("Mot de passe")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Merci de renseigner votre mot de passe")]
         public string Pword_User
         { get => _Pword_User; set => _Pword_User = value; }
     }

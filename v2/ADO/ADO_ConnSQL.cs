@@ -11,7 +11,7 @@ namespace v2.ADO
     {
         public static string fct_GetConnectionStringSQLServer()
         {
-            string v_ConnectionString = @"Data Source = localhost\SQLEXPRESS;Initial Catalog = YN2SC_2;Integrated Security=True";
+            string v_ConnectionString = @"Data Source = (localdb)\MSSQLLocalDB;Initial Catalog = DB_Ynov;Integrated Security=True";
             return v_ConnectionString;
         }
 

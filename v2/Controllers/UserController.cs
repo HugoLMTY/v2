@@ -12,5 +12,15 @@ namespace v2.Controllers
         { return View(); }
         public ActionResult CreateAccount()
         { return View(); }
+
+
+        public ActionResult Autherize(Models.Cls_User model)
+        {
+
+
+            using(LoginDataBseEntities db)
+
+            return View();
+        }
     }
 }

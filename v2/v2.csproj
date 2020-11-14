@@ -146,7 +146,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\indexStyle.css" />
+    <Content Include="Content\connexionStyle.css" />
     <Content Include="Content\mainStyle.css" />
     <Content Include="Content\shopStyle.css" />
     <Content Include="favicon.ico" />
