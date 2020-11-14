@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_YnovModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_Basket">
+          <Key>
+            <PropertyRef Name="id_basket" />
+          </Key>
+          <Property Name="id_basket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="qty_basket" Type="int" Nullable="false" />
+          <Property Name="price_basket" Type="int" Nullable="false" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="status_basket" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Basketitem">
+          <Key>
+            <PropertyRef Name="id_basketitem" />
+          </Key>
+          <Property Name="id_basketitem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_basket" Type="int" />
+          <Property Name="id_product" Type="int" />
+          <Property Name="qty_basketitem" Type="int" Nullable="false" />
+          <Property Name="price_basketitem" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Imgproduct">
+          <Key>
+            <PropertyRef Name="id_imgproduct" />
+          </Key>
+          <Property Name="id_imgproduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="path_imgproduct" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name_product" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Order">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_basket" Type="int" />
+          <Property Name="request_order" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="comment_order" Type="varchar" MaxLength="50" />
+          <Property Name="filepath_order" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status_order" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Product">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="qty_product" Type="int" Nullable="false" />
+          <Property Name="color_product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="price_product" Type="int" Nullable="false" />
+          <Property Name="desc_product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_imgproduct" Type="int" />
+          <Property Name="type_product" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="height_product" Type="float" />
+          <Property Name="lenght_product" Type="float" />
+          <Property Name="width_product" Type="float" />
+        </EntityType>
+        <EntityType Name="T_User">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_user" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="firstname_user" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="type_user" Type="int" Nullable="false" />
+          <Property Name="mail_user" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="age_user" Type="int" />
+          <Property Name="adress_user" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tel_user" Type="int" Nullable="false" />
+          <Property Name="pword_user" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__T_Basket__id_use__2A4B4B5E">
+          <End Role="T_User" Type="Self.T_User" Multiplicity="0..1" />
+          <End Role="T_Basket" Type="Self.T_Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="T_Basket">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_Basketi__id_ba__2D27B809">
+          <End Role="T_Basket" Type="Self.T_Basket" Multiplicity="0..1" />
+          <End Role="T_Basketitem" Type="Self.T_Basketitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Basket">
+              <PropertyRef Name="id_basket" />
+            </Principal>
+            <Dependent Role="T_Basketitem">
+              <PropertyRef Name="id_basket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_Basketi__id_pr__2E1BDC42">
+          <End Role="T_Product" Type="Self.T_Product" Multiplicity="0..1" />
+          <End Role="T_Basketitem" Type="Self.T_Basketitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="T_Basketitem">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_Order__id_bask__30F848ED">
+          <End Role="T_Basket" Type="Self.T_Basket" Multiplicity="0..1" />
+          <End Role="T_Order" Type="Self.T_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Basket">
+              <PropertyRef Name="id_basket" />
+            </Principal>
+            <Dependent Role="T_Order">
+              <PropertyRef Name="id_basket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_Product__id_im__276EDEB3">
+          <End Role="T_Imgproduct" Type="Self.T_Imgproduct" Multiplicity="0..1" />
+          <End Role="T_Product" Type="Self.T_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Imgproduct">
+              <PropertyRef Name="id_imgproduct" />
+            </Principal>
+            <Dependent Role="T_Product">
+              <PropertyRef Name="id_imgproduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_YnovModelStoreContainer">
+          <EntitySet Name="T_Basket" EntityType="Self.T_Basket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Basketitem" EntityType="Self.T_Basketitem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Imgproduct" EntityType="Self.T_Imgproduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Order" EntityType="Self.T_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Product" EntityType="Self.T_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_User" EntityType="Self.T_User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__T_Basket__id_use__2A4B4B5E" Association="Self.FK__T_Basket__id_use__2A4B4B5E">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Basket" EntitySet="T_Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_Basketi__id_ba__2D27B809" Association="Self.FK__T_Basketi__id_ba__2D27B809">
+            <End Role="T_Basket" EntitySet="T_Basket" />
+            <End Role="T_Basketitem" EntitySet="T_Basketitem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_Basketi__id_pr__2E1BDC42" Association="Self.FK__T_Basketi__id_pr__2E1BDC42">
+            <End Role="T_Product" EntitySet="T_Product" />
+            <End Role="T_Basketitem" EntitySet="T_Basketitem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_Order__id_bask__30F848ED" Association="Self.FK__T_Order__id_bask__30F848ED">
+            <End Role="T_Basket" EntitySet="T_Basket" />
+            <End Role="T_Order" EntitySet="T_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_Product__id_im__276EDEB3" Association="Self.FK__T_Product__id_im__276EDEB3">
+            <End Role="T_Imgproduct" EntitySet="T_Imgproduct" />
+            <End Role="T_Product" EntitySet="T_Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_YnovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_Basket">
+          <Key>
+            <PropertyRef Name="id_basket" />
+          </Key>
+          <Property Name="id_basket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="qty_basket" Type="Int32" Nullable="false" />
+          <Property Name="price_basket" Type="Int32" Nullable="false" />
+          <Property Name="id_user" Type="Int32" />
+          <Property Name="status_basket" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_User" Relationship="Self.FK__T_Basket__id_use__2A4B4B5E" FromRole="T_Basket" ToRole="T_User" />
+          <NavigationProperty Name="T_Basketitem" Relationship="Self.FK__T_Basketi__id_ba__2D27B809" FromRole="T_Basket" ToRole="T_Basketitem" />
+          <NavigationProperty Name="T_Order" Relationship="Self.FK__T_Order__id_bask__30F848ED" FromRole="T_Basket" ToRole="T_Order" />
+        </EntityType>
+        <EntityType Name="T_Basketitem">
+          <Key>
+            <PropertyRef Name="id_basketitem" />
+          </Key>
+          <Property Name="id_basketitem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_basket" Type="Int32" />
+          <Property Name="id_product" Type="Int32" />
+          <Property Name="qty_basketitem" Type="Int32" Nullable="false" />
+          <Property Name="price_basketitem" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_Basket" Relationship="Self.FK__T_Basketi__id_ba__2D27B809" FromRole="T_Basketitem" ToRole="T_Basket" />
+          <NavigationProperty Name="T_Product" Relationship="Self.FK__T_Basketi__id_pr__2E1BDC42" FromRole="T_Basketitem" ToRole="T_Product" />
+        </EntityType>
+        <EntityType Name="T_Imgproduct">
+          <Key>
+            <PropertyRef Name="id_imgproduct" />
+          </Key>
+          <Property Name="id_imgproduct" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="path_imgproduct" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name_product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_Product" Relationship="Self.FK__T_Product__id_im__276EDEB3" FromRole="T_Imgproduct" ToRole="T_Product" />
+        </EntityType>
+        <EntityType Name="T_Order">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_basket" Type="Int32" />
+          <Property Name="request_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comment_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="filepath_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_Basket" Relationship="Self.FK__T_Order__id_bask__30F848ED" FromRole="T_Order" ToRole="T_Basket" />
+        </EntityType>
+        <EntityType Name="T_Product">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="qty_product" Type="Int32" Nullable="false" />
+          <Property Name="color_product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price_product" Type="Int32" Nullable="false" />
+          <Property Name="desc_product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_imgproduct" Type="Int32" />
+          <Property Name="type_product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="height_product" Type="Double" />
+          <Property Name="lenght_product" Type="Double" />
+          <Property Name="width_product" Type="Double" />
+          <NavigationProperty Name="T_Basketitem" Relationship="Self.FK__T_Basketi__id_pr__2E1BDC42" FromRole="T_Product" ToRole="T_Basketitem" />
+          <NavigationProperty Name="T_Imgproduct" Relationship="Self.FK__T_Product__id_im__276EDEB3" FromRole="T_Product" ToRole="T_Imgproduct" />
+        </EntityType>
+        <EntityType Name="T_User">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstname_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type_user" Type="Int32" Nullable="false" />
+          <Property Name="mail_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age_user" Type="Int32" />
+          <Property Name="adress_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tel_user" Type="Int32" Nullable="false" />
+          <Property Name="pword_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_Basket" Relationship="Self.FK__T_Basket__id_use__2A4B4B5E" FromRole="T_User" ToRole="T_Basket" />
+        </EntityType>
+        <Association Name="FK__T_Basket__id_use__2A4B4B5E">
+          <End Role="T_User" Type="Self.T_User" Multiplicity="0..1" />
+          <End Role="T_Basket" Type="Self.T_Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="T_Basket">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_Basketi__id_ba__2D27B809">
+          <End Role="T_Basket" Type="Self.T_Basket" Multiplicity="0..1" />
+          <End Role="T_Basketitem" Type="Self.T_Basketitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Basket">
+              <PropertyRef Name="id_basket" />
+            </Principal>
+            <Dependent Role="T_Basketitem">
+              <PropertyRef Name="id_basket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_Order__id_bask__30F848ED">
+          <End Role="T_Basket" Type="Self.T_Basket" Multiplicity="0..1" />
+          <End Role="T_Order" Type="Self.T_Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Basket">
+              <PropertyRef Name="id_basket" />
+            </Principal>
+            <Dependent Role="T_Order">
+              <PropertyRef Name="id_basket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_Basketi__id_pr__2E1BDC42">
+          <End Role="T_Product" Type="Self.T_Product" Multiplicity="0..1" />
+          <End Role="T_Basketitem" Type="Self.T_Basketitem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Product">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="T_Basketitem">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_Product__id_im__276EDEB3">
+          <End Role="T_Imgproduct" Type="Self.T_Imgproduct" Multiplicity="0..1" />
+          <End Role="T_Product" Type="Self.T_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_Imgproduct">
+              <PropertyRef Name="id_imgproduct" />
+            </Principal>
+            <Dependent Role="T_Product">
+              <PropertyRef Name="id_imgproduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_YnovEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Basket" EntityType="Self.T_Basket" />
+          <EntitySet Name="T_Basketitem" EntityType="Self.T_Basketitem" />
+          <EntitySet Name="T_Imgproduct" EntityType="Self.T_Imgproduct" />
+          <EntitySet Name="T_Order" EntityType="Self.T_Order" />
+          <EntitySet Name="T_Product" EntityType="Self.T_Product" />
+          <EntitySet Name="T_User" EntityType="Self.T_User" />
+          <AssociationSet Name="FK__T_Basket__id_use__2A4B4B5E" Association="Self.FK__T_Basket__id_use__2A4B4B5E">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Basket" EntitySet="T_Basket" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_Basketi__id_ba__2D27B809" Association="Self.FK__T_Basketi__id_ba__2D27B809">
+            <End Role="T_Basket" EntitySet="T_Basket" />
+            <End Role="T_Basketitem" EntitySet="T_Basketitem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_Order__id_bask__30F848ED" Association="Self.FK__T_Order__id_bask__30F848ED">
+            <End Role="T_Basket" EntitySet="T_Basket" />
+            <End Role="T_Order" EntitySet="T_Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_Basketi__id_pr__2E1BDC42" Association="Self.FK__T_Basketi__id_pr__2E1BDC42">
+            <End Role="T_Product" EntitySet="T_Product" />
+            <End Role="T_Basketitem" EntitySet="T_Basketitem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_Product__id_im__276EDEB3" Association="Self.FK__T_Product__id_im__276EDEB3">
+            <End Role="T_Imgproduct" EntitySet="T_Imgproduct" />
+            <End Role="T_Product" EntitySet="T_Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_YnovModelStoreContainer" CdmEntityContainer="DB_YnovEntities">
+          <EntitySetMapping Name="T_Basket">
+            <EntityTypeMapping TypeName="DB_YnovModel.T_Basket">
+              <MappingFragment StoreEntitySet="T_Basket">
+                <ScalarProperty Name="id_basket" ColumnName="id_basket" />
+                <ScalarProperty Name="qty_basket" ColumnName="qty_basket" />
+                <ScalarProperty Name="price_basket" ColumnName="price_basket" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="status_basket" ColumnName="status_basket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Basketitem">
+            <EntityTypeMapping TypeName="DB_YnovModel.T_Basketitem">
+              <MappingFragment StoreEntitySet="T_Basketitem">
+                <ScalarProperty Name="id_basketitem" ColumnName="id_basketitem" />
+                <ScalarProperty Name="id_basket" ColumnName="id_basket" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="qty_basketitem" ColumnName="qty_basketitem" />
+                <ScalarProperty Name="price_basketitem" ColumnName="price_basketitem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Imgproduct">
+            <EntityTypeMapping TypeName="DB_YnovModel.T_Imgproduct">
+              <MappingFragment StoreEntitySet="T_Imgproduct">
+                <ScalarProperty Name="id_imgproduct" ColumnName="id_imgproduct" />
+                <ScalarProperty Name="path_imgproduct" ColumnName="path_imgproduct" />
+                <ScalarProperty Name="name_product" ColumnName="name_product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Order">
+            <EntityTypeMapping TypeName="DB_YnovModel.T_Order">
+              <MappingFragment StoreEntitySet="T_Order">
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="id_basket" ColumnName="id_basket" />
+                <ScalarProperty Name="request_order" ColumnName="request_order" />
+                <ScalarProperty Name="comment_order" ColumnName="comment_order" />
+                <ScalarProperty Name="filepath_order" ColumnName="filepath_order" />
+                <ScalarProperty Name="status_order" ColumnName="status_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Product">
+            <EntityTypeMapping TypeName="DB_YnovModel.T_Product">
+              <MappingFragment StoreEntitySet="T_Product">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="name_product" ColumnName="name_product" />
+                <ScalarProperty Name="qty_product" ColumnName="qty_product" />
+                <ScalarProperty Name="color_product" ColumnName="color_product" />
+                <ScalarProperty Name="price_product" ColumnName="price_product" />
+                <ScalarProperty Name="desc_product" ColumnName="desc_product" />
+                <ScalarProperty Name="id_imgproduct" ColumnName="id_imgproduct" />
+                <ScalarProperty Name="type_product" ColumnName="type_product" />
+                <ScalarProperty Name="height_product" ColumnName="height_product" />
+                <ScalarProperty Name="lenght_product" ColumnName="lenght_product" />
+                <ScalarProperty Name="width_product" ColumnName="width_product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_User">
+            <EntityTypeMapping TypeName="DB_YnovModel.T_User">
+              <MappingFragment StoreEntitySet="T_User">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="name_user" ColumnName="name_user" />
+                <ScalarProperty Name="firstname_user" ColumnName="firstname_user" />
+                <ScalarProperty Name="type_user" ColumnName="type_user" />
+                <ScalarProperty Name="mail_user" ColumnName="mail_user" />
+                <ScalarProperty Name="age_user" ColumnName="age_user" />
+                <ScalarProperty Name="adress_user" ColumnName="adress_user" />
+                <ScalarProperty Name="tel_user" ColumnName="tel_user" />
+                <ScalarProperty Name="pword_user" ColumnName="pword_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

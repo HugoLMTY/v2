@@ -1,5 +1,5 @@
 ﻿@using v2.Job
-@model v2.Models.Cls_User
+@model v2.Models.T_User
 
 @*<div class="jumbotron">
     <h1 class="display-4">Connectez vous</h1>
@@ -38,7 +38,7 @@
         </form>*@
 
 
-@using (Html.BeginForm(FormMethod.Post))
+@using (Html.BeginForm("Autherize", "User", FormMethod.Post))
 {
     <table>
         <tr>
@@ -47,27 +47,27 @@
         </tr>
 
         <tr>
-            <td> @Html.LabelFor(model => model.Mail_User) </td>
-            <td>  @Html.EditorFor(model => model.Mail_User) </td>
+            <td> @Html.LabelFor(model => model.mail_user) </td>
+            <td>  @Html.EditorFor(model => model.mail_user) </td>
         </tr>
         <tr>
             <td></td>
-            <td> @Html.ValidationMessageFor(model => model.Mail_User) </td>
+            <td> @Html.ValidationMessageFor(model => model.mail_user) </td>
         </tr>
 
 
         <tr>
-            <td> @Html.LabelFor(model => model.Pword_User) </td>
-            <td> @Html.EditorFor(model => model.Pword_User) </td>
+            <td> @Html.LabelFor(model => model.pword_user) </td>
+            <td> @Html.EditorFor(model => model.pword_user) </td>
         </tr>
         <tr>
             <td></td>
-            <td> @Html.ValidationMessageFor(model => model.Pword_User) </td>
+            <td> @Html.ValidationMessageFor(model => model.pword_user) </td>
         </tr>
 
         <tr>
             <td colspan="2">
-                <label class="field-validation-error">@Html.DisplayFor(model => model.loginWrong) </label>
+                <label class="field-validation-error">@Html.DisplayFor(model => model.loginErrorMessage) </label>
             </td>
         </tr>
 

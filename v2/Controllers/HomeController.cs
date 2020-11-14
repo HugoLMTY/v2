@@ -18,9 +18,9 @@ namespace v2.Controllers
         { return View(); }
 
         public ActionResult Connexion()
-        { return View(); }
+        { return RedirectToAction("Connexion","User"); }
 
         public ActionResult CreateAccount()
-        { return View(); }
+        { return RedirectToAction("CreateAccount", "User"); }
     }
 }

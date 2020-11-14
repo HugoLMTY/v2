@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="acbbe68b4f8d433194e9d25d0f607138" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_YnovModel.T_Basket" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_YnovModel.T_Basketitem" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_YnovModel.T_Imgproduct" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_YnovModel.T_Order" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_YnovModel.T_Product" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_YnovModel.T_User" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="DB_YnovModel.FK__T_Basket__id_use__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_YnovModel.FK__T_Basketi__id_ba__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_YnovModel.FK__T_Order__id_bask__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_YnovModel.FK__T_Basketi__id_pr__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_YnovModel.FK__T_Product__id_im__276EDEB3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
