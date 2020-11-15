@@ -1,87 +1,33 @@
 ﻿@using v2.Job
 @model v2.Models.T_User
 
-@*<div class="jumbotron">
-    <h1 class="display-4">Connectez vous</h1>
-    <p>page de connexion balh blah bnlah nlah blah labh</p>
-    <hr class="my-4" />
-    <p class="lead">
-        <form action="/" method="post" class="row">
-
-            <div class="form-group col-5" >
-                <label for="loginEmail">
-                    Votre mail:
-                </label>
-                <input class="form-control" type="email" name="loginEmail" id="loginEmailHolder" placeholder="Rentrez votre adresse mail" />
-                <small id="loginMailInfo" class="form-text text-muted">ahah mail go sell money go brrr</small>
-            </div>
-
-
-            <div class="form-group col-5">
-                <label for="loginEpword">
-                    Votre pword:
-                </label>
-                <input class="form-control" type="password" name="loginEpword" id="loginEpwordHolder" placeholder="Rentrez votre pword" />
-            </div>
-
-            <div class="col-1"></div>
-
-            @foreach (var item in Job_User.fct_GetListUser())
-            {
-                <p>@item.ID_User</p>
-                <p>@item.Name_User</p>
-            }
-
-            @Html.ActionLink("Se connecter", "ConnexionAccess", "User", new { @class = "btn btn-primary" })
-            @Html.ActionLink("Créer un compte", "CreateAccount", "User", new { @class = "btn" })
-
-        </form>*@
-
-
 @using (Html.BeginForm("Autherize", "User", FormMethod.Post))
 {
-    <table>
-        <tr>
-            <td></td>
-            <td>Conn</td>
-        </tr>
 
-        <tr>
-            <td> @Html.LabelFor(model => model.mail_user) </td>
-            <td>  @Html.EditorFor(model => model.mail_user) </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td> @Html.ValidationMessageFor(model => model.mail_user) </td>
-        </tr>
+    <div class="jumbotron">
+        <h1 class="display-4">Connectez vous</h1>
+        <p>page de connexion balh blah bnlah nlah blah labh</p>
+        <hr class="my-4" />
+        <p class="lead"></p>
 
+        <div class="form-group col-5">
+            @Html.LabelFor(model => model.mail_user)
+            @Html.EditorFor(model => model.mail_user)
+            @Html.ValidationMessageFor(model => model.mail_user)
+        </div>
 
-        <tr>
-            <td> @Html.LabelFor(model => model.pword_user) </td>
-            <td> @Html.EditorFor(model => model.pword_user) </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td> @Html.ValidationMessageFor(model => model.pword_user) </td>
-        </tr>
+        <div class="form-group col-5">
+            @Html.LabelFor(model => model.pword_user)
+            @Html.EditorFor(model => model.pword_user)
+            @Html.ValidationMessageFor(model => model.pword_user)
+        </div>
 
-        <tr>
-            <td colspan="2">
-                <label class="field-validation-error">@Html.DisplayFor(model => model.loginErrorMessage) </label>
-            </td>
-        </tr>
+        <label class="field-validation-error">@Html.DisplayFor(model => model.loginErrorMessage) </label>
 
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" name="" value="conn" />
-                <input type="reset" name="" value="reset" />
-            </td>
-        </tr>
-    </table>
+        <input type="submit" class="btn btn-primary" value="conn" />
+        <input type="reset" class="btn" value="reset" />
+    </div>
 }
-
-</div>
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

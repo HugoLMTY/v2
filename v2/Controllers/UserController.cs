@@ -50,8 +50,13 @@ namespace v2.Controllers
                     return RedirectToAction("Index", "Home");
                 }
             }
+        }
 
-            return View();
+
+        public ActionResult Disconnect()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

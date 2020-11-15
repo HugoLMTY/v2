@@ -23,19 +23,39 @@
         <hr class="my-4" />
 
         <div class="list-group list-group-horizontal" id="myList" role="tablist">
-            <a class="list-group-item list-group-item-action active" data-toggle="list" href="#home" role="tab">Home</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#profile" role="tab">Profile</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#messages" role="tab">Messages</a>
-            <a class="list-group-item list-group-item-action" data-toggle="list" href="#settings" role="tab">Settings</a>
+            <a class="list-group-item list-group-item-action text-center active" data-toggle="list" href="#home" role="tab">Profil</a>
+            <a class="list-group-item list-group-item-action text-center" data-toggle="list" href="#profile" role="tab">Commandess</a>
+            <a class="list-group-item list-group-item-action text-center" data-toggle="list" href="#messages" role="tab">Réglages</a>
+            <button type="button" class="list-group-item list-group-item-action bg-danger text-white text-center" data-toggle="modal" data-target="#logoffModal">
+                Déconnexion
+            </button>
         </div>
 
         <div class="tab-content">
             <div class="tab-pane active" id="home" role="tabpanel">..</div>
             <div class="tab-pane" id="profile" role="tabpanel">..qZ.</div>
             <div class="tab-pane" id="messages" role="tabpanel">..ZF.</div>
-            <div class="tab-pane" id="settings" role="tabpanel">.qfQZF..</div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="logoffModal" tabindex="-1" role="dialog" aria-labelledby="logoffModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="logoffModalTitle">
+                        Êtes-vous sûr de vouloir vous déconnecter?
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    @Html.ActionLink("Déconnexion", "Disconnect", "User",
+                   new { @class = "btn text-center bg-danger text-white" })
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
  
