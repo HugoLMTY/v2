@@ -17,6 +17,13 @@ namespace v2.Controllers
         public ActionResult Commands()
         { return View(); }
 
+        public ActionResult test()
+        { return View(); }
+        
+
+        public ActionResult Profil()
+        { return RedirectToAction("Profil","User"); }
+
         public ActionResult Connexion()
         { return RedirectToAction("Connexion","User"); }
 

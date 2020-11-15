@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Profil";
+    if (Session["CurrentUser"] == null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+<div id="profilHolder" class="container">
+
+    <div id="profilTitle" class="mainTitle mx-auto">
+
+        <p class="mx-auto">VOTRE PROFIL</p>
+
+    </div>
+
+    <div class="jumbotron">
+
+        <h1 class="display-4">@Session["CurrentNameUser"]</h1>
+
+        <p class="lead"> Voici votre profil. Vous pouvez modifier vos informations et consulter vos commandes ici.</p>
+
+        <hr class="my-4" />
+
+        <div class="list-group list-group-horizontal" id="myList" role="tablist">
+            <a class="list-group-item list-group-item-action active" data-toggle="list" href="#home" role="tab">Home</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#profile" role="tab">Profile</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#messages" role="tab">Messages</a>
+            <a class="list-group-item list-group-item-action" data-toggle="list" href="#settings" role="tab">Settings</a>
+        </div>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="home" role="tabpanel">..</div>
+            <div class="tab-pane" id="profile" role="tabpanel">..qZ.</div>
+            <div class="tab-pane" id="messages" role="tabpanel">..ZF.</div>
+            <div class="tab-pane" id="settings" role="tabpanel">.qfQZF..</div>
+        </div>
+    </div>
+</div>
+
+ 

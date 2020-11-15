@@ -20,14 +20,17 @@ namespace v2
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/boostrap.min.js",
+                      "~/Scripts/jquery-3.4.1*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/mainStyle.css",
                 "~/Content/shopStyle.css",
                 "~/Content/connexionStyle.css",
+                "~/Content/profilStyle.css",
                 "~/Content/bootstrap.css",
-                "~/Content/site.css")); ;
+                "~/Content/site.css"));
         }
     }
 }

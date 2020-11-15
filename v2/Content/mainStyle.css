@@ -7,3 +7,22 @@
     border-radius: 40%;
     margin: 10px;
 }
+
+.indexCarouselImg{
+    max-height: 420px;
+}
+
+.mainTitle {
+    border: 3px solid black;
+    padding: 50px;
+    margin: 20px;
+    width: 50%;
+}
+
+.mainTitle p {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+

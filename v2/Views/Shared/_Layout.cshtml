@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - YN2SC</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -16,7 +20,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item active">
                         @Html.ActionLink("Accueil", "Index", "Home", new { @class = "nav-link" })
@@ -34,18 +38,22 @@
                         @Html.ActionLink("Commandes", "Commands", "Home", new { @class = "nav-link" })
                     </li>
 
+                    <div class="navSeparator"></div>
+
+                    <li class="nav-item">
+                        @Html.ActionLink("Subjecct", "test", "Home", new { @class = "nav-link" })
+                    </li>
+
                     @if (Session["CurrentUser"] != null)
                     {
 
                         <div class="navSeparator"></div>
 
                         <li class="nav-item">
-                            @Html.ActionLink("Profile", "Profil", "Home", new { @class = "nav-link" })
+                            @Html.ActionLink("Profil", "Profil", "Home", new { @class = "nav-link" })
                         </li>
 
                         <div class="navSeparator"></div>
-
-                        <p>Connecté en tant que @Session["CurrentNameUser"]</p>
                     }
                     else
                     {
@@ -63,10 +71,12 @@
                         </li>
                     }
                 </ul>
+
+                <p class="my-2 my-lg-0">@Session["CurrentNameUser"]</p>
             </div>
         </nav>
 
-        <div class="container body-content">
+        <div class="container-fluid body-content">
             @RenderBody()
             <hr />
             <footer>

@@ -9,9 +9,27 @@ namespace v2.Controllers
 {
     public class UserController : Controller
     {
+
+
+
+        public ActionResult Index()
+        { return RedirectToAction("Index","Home"); }
+
+        public ActionResult Shop()
+        { return RedirectToAction("Shop", "Home"); }
+
+        public ActionResult Commands()
+        { return RedirectToAction("Commands", "Home"); }
+
+        public ActionResult test()
+        { return RedirectToAction("test", "Home"); }
+
+
         public ActionResult Connexion()
         { return View(); }
         public ActionResult CreateAccount()
+        { return View(); }
+        public ActionResult Profil()
         { return View(); }
 
 

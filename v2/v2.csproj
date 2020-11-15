@@ -193,6 +193,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\connexionStyle.css" />
     <Content Include="Content\mainStyle.css" />
+    <Content Include="Content\profilStyle.css" />
     <Content Include="Content\shopStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -207,6 +208,9 @@
       <DependentUpon>DB_Model.edmx</DependentUpon>
       <LastGenOutput>DB_Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Ressources\samplePrint_1.jpg" />
+    <Content Include="Ressources\samplePrint_2.jpg" />
+    <Content Include="Ressources\samplePrint_3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\DB_Model.edmx">
@@ -244,6 +248,7 @@
     <Content Include="Views\Home\Commands.cshtml" />
     <Content Include="Views\User\CreateAccount.cshtml" />
     <Content Include="Views\Home\test.cshtml" />
+    <Content Include="Views\User\Profil.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
