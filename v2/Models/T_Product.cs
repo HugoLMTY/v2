@@ -36,6 +36,6 @@ namespace v2.Models
         public virtual ICollection<T_Basketitem> T_Basketitem { get; set; }
         public virtual T_Imgproduct T_Imgproduct { get; set; }
 
-        public IEnumerable<T_Product> productList { get; set; }
+        public static List<T_Product> productList { get; set; }
     }
 }

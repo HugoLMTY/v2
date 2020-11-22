@@ -209,6 +209,7 @@
       <DependentUpon>DB_Model.edmx</DependentUpon>
       <LastGenOutput>DB_Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Ressources\logo.png" />
     <Content Include="Ressources\samplePrint_1.jpg" />
     <Content Include="Ressources\samplePrint_2.jpg" />
     <Content Include="Ressources\samplePrint_3.jpg" />

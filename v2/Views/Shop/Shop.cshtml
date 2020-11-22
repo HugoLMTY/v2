@@ -1,5 +1,6 @@
 ﻿@model v2.Models.T_Product
 @using v2.Controllers
+@using v2.Models
 
 <div id="shopHolder" class="container">
 
@@ -93,25 +94,22 @@
 
         <div id="shopContent" class="row col-8">
 
-            @foreach (var item in ShopController.getProductList())
+            @foreach (var item in T_Product.productList)
             {
-                <div class="modal fade" id="productInfosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+
+                string idModal = item.id_product + "_modal";
+
+                <div class="modal fade" id="@idModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">
-                                    @item.name_product
-                                </h5>
+                            <div class="modal-body">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                            </div>
-                            <div class="modal-body">
-
                                 <div class="row">
 
                                     <div class="col-3">
-                                        <img height="420" src="~/Ressources/samplePrint_1.jpg" />
+                                        <img style="width:inherit" src="~/Ressources/samplePrint_1.jpg" />
                                     </div>
 
                                     <div class="col-5">
@@ -125,17 +123,13 @@
 
                                     <div class="col-4">
                                         @item.price_product
-
-                                        <button class="btn btn-primary">
-                                            ajouter au panier
-                                        </button>
                                     </div>
 
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+                                <button type="button" class="btn btn-success">Ajouter au panier</button>
                             </div>
                         </div>
                     </div>
@@ -158,8 +152,8 @@
 
                                 <p style="font-weight:bold">@item.price_product€</p>
                             </div>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productInfosModal">
-                                Plus d'infos'
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@idModal">
+                                Plus d'infos
                             </button>
                         </div>
                     </div>

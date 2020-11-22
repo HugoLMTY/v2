@@ -13,7 +13,10 @@ namespace v2.Controllers
         { return RedirectToAction("Index", "Home"); }
 
         public ActionResult Shop()
-        { return View(); }
+        {
+            getProductList();
+            return View(); 
+        }
 
         public ActionResult Commands()
         { return RedirectToAction("Commands", "Home"); }
@@ -32,17 +35,19 @@ namespace v2.Controllers
         { return RedirectToAction("CreateAccount", "User"); }
 
 
-        public static List<T_Product> getProductList()
+        public static void getProductList()
         {
             using (DB_YnovEntities db = new DB_YnovEntities())
             {
                 List<T_Product> productList = new List<T_Product>();
-                T_Product productInfos = new T_Product();
 
-                var dbProductList = db.T_Product.Where(x => x.name_product != null);
-                
+                IEnumerable<T_Product> dbProductList;
+                dbProductList = db.T_Product.ToList();
+
                 foreach (var item in dbProductList)
                 {
+                    T_Product productInfos = new T_Product();
+
                     productInfos.id_product = item.id_product;
                     productInfos.name_product = item.name_product;
                     productInfos.qty_product = item.qty_product;
@@ -56,7 +61,7 @@ namespace v2.Controllers
 
                     productList.Add(productInfos);
                 }
-                return productList;
+                T_Product.productList = productList;
             }
         }
     }
