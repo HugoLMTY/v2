@@ -35,5 +35,7 @@ namespace v2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Basketitem> T_Basketitem { get; set; }
         public virtual T_Imgproduct T_Imgproduct { get; set; }
+
+        public IEnumerable<T_Product> productList { get; set; }
     }
 }

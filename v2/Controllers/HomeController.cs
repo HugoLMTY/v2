@@ -12,7 +12,7 @@ namespace v2.Controllers
         { return View(); }
 
         public ActionResult Shop()
-        { return View(); }
+        { return RedirectToAction("Shop","Shop"); }
 
         public ActionResult Commands()
         { return View(); }
@@ -20,7 +20,6 @@ namespace v2.Controllers
         public ActionResult test()
         { return View(); }
         
-
         public ActionResult Profil()
         { return RedirectToAction("Profil","User"); }
 

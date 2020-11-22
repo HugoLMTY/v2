@@ -135,6 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -244,7 +245,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\Connexion.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Shop.cshtml" />
+    <Content Include="Views\Shop\Shop.cshtml" />
     <Content Include="Views\Home\Commands.cshtml" />
     <Content Include="Views\User\CreateAccount.cshtml" />
     <Content Include="Views\Home\test.cshtml" />

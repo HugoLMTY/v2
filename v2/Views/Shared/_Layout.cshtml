@@ -5,86 +5,94 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - YN2SC</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     @Styles.Render("~/Content/css")
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
+    
     @Scripts.Render("~/bundles/modernizr")
 </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">YNS²C</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">YNS²C</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
 
-                    <li class="nav-item active">
-                        @Html.ActionLink("Accueil", "Index", "Home", new { @class = "nav-link" })
+                <li class="nav-item active">
+                    @Html.ActionLink("Accueil", "Index", "Home", new { @class = "nav-link" })
+                </li>
+
+                <div class="navSeparator"></div>
+
+                <li class="nav-item">
+                    @Html.ActionLink("Boutique", "Shop", "Home", new { @class = "nav-link" })
+                </li>
+
+                <div class="navSeparator"></div>
+
+                <li class="nav-item">
+                    @Html.ActionLink("Commandes", "Commands", "Home", new { @class = "nav-link" })
+                </li>
+
+                <div class="navSeparator"></div>
+
+                <li class="nav-item">
+                    @Html.ActionLink("Subjecct", "test", "Home", new { @class = "nav-link" })
+                </li>
+
+                @if (Session["CurrentUser"] != null)
+                {
+
+                    <div class="navSeparator"></div>
+
+                    <li class="nav-item">
+                        @Html.ActionLink("Profil", "Profil", "Home", new { @class = "nav-link" })
+                    </li>
+
+                    <div class="navSeparator"></div>
+                }
+                else
+                {
+
+                    <div class="navSeparator"></div>
+
+                    <li class="nav-item">
+                        @Html.ActionLink("Créer un compte", "CreateAccount", "Home", new { @class = "nav-link" })
                     </li>
 
                     <div class="navSeparator"></div>
 
                     <li class="nav-item">
-                        @Html.ActionLink("Boutique", "Shop", "Home", new { @class = "nav-link" })
+                        @Html.ActionLink("Connexion", "Connexion", "Home", new { @class = "nav-link" })
                     </li>
+                }
+            </ul>
 
-                    <div class="navSeparator"></div>
-
-                    <li class="nav-item">
-                        @Html.ActionLink("Commandes", "Commands", "Home", new { @class = "nav-link" })
-                    </li>
-
-                    <div class="navSeparator"></div>
-
-                    <li class="nav-item">
-                        @Html.ActionLink("Subjecct", "test", "Home", new { @class = "nav-link" })
-                    </li>
-
-                    @if (Session["CurrentUser"] != null)
-                    {
-
-                        <div class="navSeparator"></div>
-
-                        <li class="nav-item">
-                            @Html.ActionLink("Profil", "Profil", "Home", new { @class = "nav-link" })
-                        </li>
-
-                        <div class="navSeparator"></div>
-                    }
-                    else
-                    {
-
-                        <div class="navSeparator"></div>
-
-                        <li class="nav-item">
-                            @Html.ActionLink("Créer un compte", "CreateAccount", "Home", new { @class = "nav-link" })
-                        </li>
-
-                        <div class="navSeparator"></div>
-
-                        <li class="nav-item">
-                            @Html.ActionLink("Connexion", "Connexion", "Home", new { @class = "nav-link" })
-                        </li>
-                    }
-                </ul>
-
-                <p id="navUserName" class="my-2 text-right my-lg-0">@Session["CurrentNameUser"]</p>
-            </div>
-        </nav>
-
-        <div class="container-fluid body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year - YN2SC</p>
-            </footer>
+            <p id="navUserName" class="my-2 text-right my-lg-0">@Session["CurrentNameUser"]</p>
         </div>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
+    </nav>
+
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - YN2SC</p>
+        </footer>
+    </div>
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
 </html>

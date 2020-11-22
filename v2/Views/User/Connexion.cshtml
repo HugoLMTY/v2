@@ -1,15 +1,41 @@
-﻿@using v2.Job
-@model v2.Models.T_User
+﻿@model v2.Models.T_User
 
 @using (Html.BeginForm("Autherize", "User", FormMethod.Post))
 {
 
-    <div class="jumbotron">
-        <h1 class="display-4">Connectez vous</h1>
-        <p>page de connexion balh blah bnlah nlah blah labh</p>
-        <hr class="my-4" />
-        <p class="lead"></p>
+<div class="jumbotron container">
+    <h1 class="display-4">Connectez vous</h1>
+    <p>page de connexion balh blah bnlah nlah blah labh</p>
+    <hr class="my-4" />
+    <p class="lead"></p>
 
+    @if (Session["createState"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <strong>
+                Compte créé avec succèes
+            </strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="form-group col-5">
+            @Html.LabelFor(model => model.mail_user)
+            @Html.EditorFor(model => model.mail_user, new { placeholder = Session["createMail"], autofill = false })
+            @Html.ValidationMessageFor(model => model.mail_user)
+        </div>
+
+        <div class="form-group col-5">
+            @Html.LabelFor(model => model.pword_user)
+            @Html.EditorFor(model => model.pword_user, new { placeholder = Session["createPword"], autofill = false })
+            @Html.ValidationMessageFor(model => model.pword_user)
+        </div>
+
+        Session.Remove("createState");
+    }
+    else
+    {
         <div class="form-group col-5">
             @Html.LabelFor(model => model.mail_user)
             @Html.EditorFor(model => model.mail_user)
@@ -21,14 +47,10 @@
             @Html.EditorFor(model => model.pword_user)
             @Html.ValidationMessageFor(model => model.pword_user)
         </div>
+    }
+    <label class="field-validation-error">@Html.DisplayFor(model => model.loginErrorMessage) </label>
 
-        <label class="field-validation-error">@Html.DisplayFor(model => model.loginErrorMessage) </label>
-
-        <input type="submit" class="btn btn-primary" value="conn" />
-        <input type="reset" class="btn" value="reset" />
-    </div>
+    <input type="submit" class="btn btn-primary" value="conn" />
+    <input type="reset" class="btn" value="reset" />
+</div>
 }
-
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

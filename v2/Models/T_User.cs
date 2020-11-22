@@ -21,17 +21,35 @@ namespace v2.Models
         {
             this.T_Basket = new HashSet<T_Basket>();
         }
-    
-        public int id_user { get; set; }
+
+
+         public int id_user { get; set; }
+
+        [DisplayName("Nom")]
+        [Required(ErrorMessage = "Merci de renseigner votre nom")]
         public string name_user { get; set; }
+
+        [DisplayName("Prénom")]
+        [Required(ErrorMessage = "Merci de renseigner votre prénom")]
         public string firstname_user { get; set; }
+
         public int type_user { get; set; }
 
         [DisplayName("Adresse Mail")]
         [Required(ErrorMessage = "Merci de renseigner votre mail")]
+        [EmailAddress(ErrorMessage = "Adresse email non valide")]
         public string mail_user { get; set; }
+
+        [DisplayName("Âge")]
+        [Required(ErrorMessage = "Merci de renseigner votre âge")]
         public Nullable<int> age_user { get; set; }
+
+        [DisplayName("Adresse")]
+        [Required(ErrorMessage = "Merci de renseigner votre adresse")]
         public string adress_user { get; set; }
+
+        [DisplayName("Téléphone")]
+        [Required(ErrorMessage = "Merci de renseigner votre numéro de téléphone")]
         public int tel_user { get; set; }
 
         [DisplayName("Mot de passe")]
@@ -43,5 +61,9 @@ namespace v2.Models
         public virtual ICollection<T_Basket> T_Basket { get; set; }
 
         public string loginErrorMessage { get; set; }
+
+        //public string createErrorMessage { get; set; }
+
+        //public string createSuccessMessage { get; set; }
     }
 }
