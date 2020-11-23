@@ -24,3 +24,13 @@
     border-bottom: 1px solid lightgray;
     margin: 15px;
 }
+
+.card {
+    transition-duration: 0.15s;
+    margin-bottom: 42px;
+}
+
+.card:hover{
+    border: 2px solid #0099ff;
+    transform: scale(1.1);
+}

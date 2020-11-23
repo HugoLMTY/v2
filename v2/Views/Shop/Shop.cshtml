@@ -2,6 +2,51 @@
 @using v2.Controllers
 @using v2.Models
 
+@foreach (var item in T_Product.productList)
+{
+    string idModal = item.id_product + "_modal";
+    string idLab = item.id_product + "_lab";
+
+    <div class="modal fade" id="@idModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="row">
+
+                        <div class="col-3">
+                            <img style="width:inherit" src="~/Ressources/samplePrint_1.jpg" />
+                        </div>
+
+                        <div class="col-5">
+                            <h2>@item.name_product</h2>
+                            <p>Référence: @item.id_imgproduct</p>
+
+                            <hr class="my-4" />
+
+                            @item.desc_product
+                        </div>
+
+                        <div class="col-4">
+                            @item.price_product
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+                    <button type="button" class="btn btn-success">Ajouter au panier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+}
+
+
 <div id="shopHolder" class="container">
 
     <div id="shopTitle" class=" mainTitle mx-auto">
@@ -9,7 +54,7 @@
         <p class="mx-auto">LA BOUTIQUE</p>
 
     </div>
-    
+
     <div class="shopContainer row">
 
 
@@ -96,60 +141,24 @@
 
             @foreach (var item in T_Product.productList)
             {
-
                 string idModal = item.id_product + "_modal";
 
-                <div class="modal fade" id="@idModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <div class="row">
-
-                                    <div class="col-3">
-                                        <img style="width:inherit" src="~/Ressources/samplePrint_1.jpg" />
-                                    </div>
-
-                                    <div class="col-5">
-                                        <h2>@item.name_product</h2>
-                                        <p>Référence: @item.id_imgproduct</p>
-
-                                        <hr class="my-4" />
-
-                                        @item.desc_product
-                                    </div>
-
-                                    <div class="col-4">
-                                        @item.price_product
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                                <button type="button" class="btn btn-success">Ajouter au panier</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-4 ">
+                <div class="col-4">
                     <div class="card">
                         <img height="120" src="~/Ressources/samplePrint_1.jpg" />
                         <div class="card-body">
                             <div class="card-title">
-                                <h5>
+                                <h2>
                                     @item.name_product
-                                </h5>
+                                </h2>
                             </div>
 
                             <div class="card-text">
-                                <p>@item.desc_product</p>
-
+                                <p style="font-weight:bold">@item.desc_product</p>
+                                <p>
+                                    @item.lenght_product x @item.width_product x @item.height_product (cm)<br />
+                                    Quantité: @item.qty_product.
+                                </p>
                                 <p style="font-weight:bold">@item.price_product€</p>
                             </div>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@idModal">
@@ -163,27 +172,27 @@
 
             @*
 
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>*@
+                <div class="col-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>*@
 
         </div>
     </div>
