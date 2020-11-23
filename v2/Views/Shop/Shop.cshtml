@@ -2,51 +2,6 @@
 @using v2.Controllers
 @using v2.Models
 
-@foreach (var item in T_Product.productList)
-{
-    string idModal = item.id_product + "_modal";
-    string idLab = item.id_product + "_lab";
-
-    <div class="modal fade" id="@idModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div class="row">
-
-                        <div class="col-3">
-                            <img style="width:inherit" src="~/Ressources/samplePrint_1.jpg" />
-                        </div>
-
-                        <div class="col-5">
-                            <h2>@item.name_product</h2>
-                            <p>Référence: @item.id_imgproduct</p>
-
-                            <hr class="my-4" />
-
-                            @item.desc_product
-                        </div>
-
-                        <div class="col-4">
-                            @item.price_product
-                        </div>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                    <button type="button" class="btn btn-success">Ajouter au panier</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-}
-
-
 <div id="shopHolder" class="container">
 
     <div id="shopTitle" class=" mainTitle mx-auto">
@@ -161,38 +116,83 @@
                                 </p>
                                 <p style="font-weight:bold">@item.price_product€</p>
                             </div>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#@idModal">
-                                Plus d'infos
-                            </button>
+                            @Html.ActionLink("Plus d'infos", "getActiveProduct", "Shop", @item.id_product, new { type = "button", @class = "btn btn-primary", data_toggle = "modal", data_target = "#modalProduct" })
                         </div>
                     </div>
                 </div>
             }
 
+            @if (Session["ActiveProduct"] != null)
+            {
+                foreach (var item in T_Product.productActive)
+                {
+                    <div class="modal fade" id="modalProduct" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <div class="row">
+
+                                        <div class="col-3">
+                                            <img style="width:inherit" src="~/Ressources/samplePrint_1.jpg" />
+                                        </div>
+
+                                        <div class="col-5">
+                                            <h2>@item.name_product</h2>
+                                            <p>Référence: @item.id_imgproduct</p>
+
+                                            <hr class="my-4" />
+
+                                            @item.desc_product
+                                        </div>
+
+                                        <div class="col-4">
+                                            @item.price_product
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+                                    <button type="button" class="btn btn-success">Ajouter au panier</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    Session.Remove("ActiveProduct");
+                }
+            }
+
+
+
+
+
 
             @*
 
-                <div class="col-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
+            </div>
+        </div>
 
-                <div class="col-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>*@
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>*@
 
         </div>
     </div>

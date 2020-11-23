@@ -37,5 +37,7 @@ namespace v2.Models
         public virtual T_Imgproduct T_Imgproduct { get; set; }
 
         public static List<T_Product> productList { get; set; }
+
+        public static List<T_Product> productActive { get; set; }
     }
 }
