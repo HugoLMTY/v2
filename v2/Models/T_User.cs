@@ -22,6 +22,7 @@ namespace v2.Models
             this.T_Basket = new HashSet<T_Basket>();
         }
 
+        public int id_activeUser { get; set; }
 
          public int id_user { get; set; }
 

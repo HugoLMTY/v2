@@ -11,7 +11,8 @@ namespace v2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class T_Basket
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,6 +23,9 @@ namespace v2.Models
         }
     
         public int id_basket { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        public DateTime date_basket { get; set; }
         public int qty_basket { get; set; }
         public int price_basket { get; set; }
         public Nullable<int> id_user { get; set; }
@@ -32,5 +36,7 @@ namespace v2.Models
         public virtual ICollection<T_Basketitem> T_Basketitem { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Order> T_Order { get; set; }
+
+        public static List<T_Basket> basketList { get; set; }
     }
 }

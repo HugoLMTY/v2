@@ -22,5 +22,7 @@ namespace v2.Models
         public string status_order { get; set; }
     
         public virtual T_Basket T_Basket { get; set; }
+
+        public static List<T_Order> orderList { get; set; }
     }
 }

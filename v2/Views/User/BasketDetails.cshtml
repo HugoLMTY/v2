@@ -1,0 +1,16 @@
+﻿@model v2.Models.T_Basketitem
+@using v2.Models
+
+@{
+    ViewBag.Title = "BasketDetails";
+}
+
+<h2>Commande n°@T_Basketitem.id_activeBasket</h2>
+
+@foreach (var item in T_Basketitem.basketProductList)
+{
+    <p>
+        <strong>x @item.qty_product </strong>
+        @item.name_product
+    </p>
+}

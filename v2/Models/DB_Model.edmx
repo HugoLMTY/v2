@@ -23,7 +23,6 @@
           <Property Name="id_basket" Type="int" />
           <Property Name="id_product" Type="int" />
           <Property Name="qty_basketitem" Type="int" Nullable="false" />
-          <Property Name="price_basketitem" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="T_Imgproduct">
           <Key>
@@ -188,7 +187,6 @@
           <Property Name="id_basket" Type="Int32" />
           <Property Name="id_product" Type="Int32" />
           <Property Name="qty_basketitem" Type="Int32" Nullable="false" />
-          <Property Name="price_basketitem" Type="Int32" Nullable="false" />
           <NavigationProperty Name="T_Basket" Relationship="Self.FK__T_Basketi__id_ba__2D27B809" FromRole="T_Basketitem" ToRole="T_Basket" />
           <NavigationProperty Name="T_Product" Relationship="Self.FK__T_Basketi__id_pr__2E1BDC42" FromRole="T_Basketitem" ToRole="T_Product" />
         </EntityType>
@@ -358,7 +356,6 @@
                 <ScalarProperty Name="id_basket" ColumnName="id_basket" />
                 <ScalarProperty Name="id_product" ColumnName="id_product" />
                 <ScalarProperty Name="qty_basketitem" ColumnName="qty_basketitem" />
-                <ScalarProperty Name="price_basketitem" ColumnName="price_basketitem" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

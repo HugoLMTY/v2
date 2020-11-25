@@ -18,9 +18,13 @@ namespace v2.Models
         public Nullable<int> id_basket { get; set; }
         public Nullable<int> id_product { get; set; }
         public int qty_basketitem { get; set; }
-        public int price_basketitem { get; set; }
     
         public virtual T_Basket T_Basket { get; set; }
         public virtual T_Product T_Product { get; set; }
+
+        public static List<T_Basketitem> basketitemList;
+        public static List<T_Product> basketProductList;
+
+        public static int id_activeBasket { get; set; }
     }
 }

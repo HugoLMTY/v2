@@ -1,1 +1,51 @@
-﻿
+﻿table{
+    margin: 20px;
+    width: 100%;
+}
+
+td{
+    border: 1px solid black;
+    background: #0094ff;
+    height: 42px;
+    min-width: 120px;
+}
+
+td string{
+    margin: 10px;
+}
+
+thead{
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.style1 td{
+    background: white;
+}
+
+.style2 td{
+    background: lightgray;
+}
+
+
+#tableBasketId{
+    width: 69px;
+}
+
+#tableBasketQty{
+    width: 69px;
+}
+
+#tableBasketDate{
+
+}
+
+#tableBasketPrice {
+    width: 69px;
+}
+
+#tableBasketStatus{
+
+}
