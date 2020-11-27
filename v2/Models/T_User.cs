@@ -63,6 +63,8 @@ namespace v2.Models
 
         public string loginErrorMessage { get; set; }
 
+        public static int activeUser { get; set; }
+
         //public string createErrorMessage { get; set; }
 
         //public string createSuccessMessage { get; set; }

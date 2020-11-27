@@ -23,6 +23,7 @@ thead{
 
 .style1 td{
     background: white;
+    font-size: 3em;
 }
 
 .style2 td{
@@ -30,22 +31,7 @@ thead{
 }
 
 
-#tableBasketId{
+#tableBasketId, #tableBasketQty, #tableBasketPrice {
     width: 69px;
 }
-
-#tableBasketQty{
-    width: 69px;
-}
-
-#tableBasketDate{
-
-}
-
-#tableBasketPrice {
-    width: 69px;
-}
-
-#tableBasketStatus{
-
 }

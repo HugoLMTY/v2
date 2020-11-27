@@ -1,15 +1,14 @@
-﻿@model v2.Models.T_Basket
-@using v2.Models
-
-
-@{
+﻿@{
     ViewBag.Title = "Profil";
     if (Session["CurrentUser"] == null)
     {
         Response.Redirect("~/Home/Index");
     }
 }
+
+
 <div id="profilHolder" class="container">
+
 
     <div id="profilTitle" class="mainTitle mx-auto">
 
@@ -37,80 +36,11 @@
         <div class="tab-content">
 
             <div class="tab-pane active" id="home" role="tabpanel">
-                <table>
-                    <thead>
-                        <tr>
-                            <td>
-                                Référence
-                            </td>
-
-                            <td>
-                                Nombre d'articles
-                            </td>
-
-                            <td>
-                                Date de commande
-                            </td>
-
-                            <td>
-                                Prix total
-                            </td>
-
-                            <td>
-                                Status de la commande
-                            </td>
-
-                            <td>
-                            </td>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        @foreach (var item in T_Basket.basketList)
-                        {
-                            <tr class="style1">
-                                <td id="tableBasketId">
-                                    <string>
-                                        @item.id_basket
-                                    </string>
-                                </td>
-
-                                <td id="tableBasketQty">
-                                    <string>
-                                        @item.qty_basket
-                                    </string>
-                                </td>
-
-                                <td id="tableBasketDate" style="text-align:center">
-                                    <string>
-                                        @item.date_basket.ToShortDateString()
-                                    </string>
-                                </td>
-
-                                <td id="tableBasketPrice">
-                                    <string>
-                                        <strong>
-                                            @item.price_basket€
-                                        </strong>
-                                    </string>
-                                </td>
-
-                                <td id="tableBasketStatus" style="font-style:italic">
-                                    <string>
-                                        @item.status_basket
-                                    </string>
-                                </td>
-
-                                <td id="tableBasketMore">
-                                    @Html.ActionLink("Détails de la commande", "BasketDetails", "User",routeValues: new { obj = item.id_basket },htmlAttributes: null);
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-
+                @Html.Partial("Commands")
             </div>
-            <div class="tab-pane" id="profile" role="tabpanel">..qZ.</div>
+            <div class="tab-pane" id="profile" role="tabpanel">
+                
+            </div>
             <div class="tab-pane" id="messages" role="tabpanel">..ZF.</div>
         </div>
     </div>

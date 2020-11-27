@@ -29,16 +29,26 @@ namespace v2.Controllers
         { return View(); }
         public ActionResult Profil()
         {
-            getBasketList();
-            return View(); 
+            using (DB_YnovEntities db = new DB_YnovEntities())
+            {
+                return View(db.T_Basket.Where(x => x.id_user == T_User.activeUser).ToList());
+            }
         }
 
         public ActionResult BasketDetails(int obj)
         {
-            getBasketItemList(obj);
-            return View();
+            using (DB_YnovEntities db = new DB_YnovEntities())
+            {
+                ViewBag.ActiveBasket = obj;
+                IEnumerable<T_Product> query = db.T_Product.SqlQuery(
+                    "select * from T_Product pro where pro.id_product in (select id_product from T_Basketitem where id_basket = ( select id_basket from T_User where id_user = " + T_User.activeUser + " ))"
+                    ).ToList();
+
+                return View("BasketDetails", query);
+            }
         }
 
+        #region Conn user
 
         public ActionResult Autherize(T_User model)
         {
@@ -49,7 +59,7 @@ namespace v2.Controllers
                 {
                     //Pas connecté
                     model.loginErrorMessage = "Mail ou mot de passe incorrect.";
-                    return View("Connexion", model);
+                    return View("Connexion");
                 }
                 else
                 {
@@ -62,13 +72,12 @@ namespace v2.Controllers
                     userId.Value = userInfos.id_user.ToString();
                     Response.Cookies.Add(userId);
 
-                    userInfos.id_activeUser = userInfos.id_user;
+                    T_User.activeUser = userInfos.id_user;
 
                     return RedirectToAction("Index", "Home");
                 }
             }
         }
-
         public ActionResult AddUser(T_User model)
         {
             using (DB_YnovEntities db = new DB_YnovEntities())
@@ -106,89 +115,13 @@ namespace v2.Controllers
                 }
             }
         }
-
-
         public ActionResult Disconnect()
         {
             Session.Clear();
             return RedirectToAction("Index", "Home");
         }
 
-        public static void getBasketList()
-        {
-            using (DB_YnovEntities db = new DB_YnovEntities())
-            {
-                List<T_Basket> basketList = new List<T_Basket>();
-
-                IEnumerable<T_Basket> dbBasketlist;
-                dbBasketlist = db.T_Basket.ToList();
-
-                foreach (var item in dbBasketlist)
-                {
-                    T_Basket basketInfos = new T_Basket();
-
-                    basketInfos.id_basket = item.id_basket;
-                    basketInfos.date_basket = item.date_basket;
-                    basketInfos.qty_basket = item.qty_basket;
-                    basketInfos.price_basket = item.price_basket;
-                    basketInfos.id_user = item.id_user;
-                    basketInfos.status_basket = item.status_basket;
-
-                    basketList.Add(basketInfos);
-                }
-                T_Basket.basketList = basketList;
-            }
-        }
-
-        public void getBasketItemList(int obj)
-        {
-            using (DB_YnovEntities db = new DB_YnovEntities())
-            {
-                List<T_Basketitem> itemList = new List<T_Basketitem>();
-                List<T_Product> productList = new List<T_Product>();
-
-                IEnumerable<T_Basketitem> dbItemList;
-                IEnumerable<T_Product> dbProductList;
-
-                dbItemList = db.T_Basketitem.Where(x => x.id_basket == obj);
-
-                foreach (var item in dbItemList)
-                {
-                    T_Basketitem itemInfos = new T_Basketitem();
-
-                    dbProductList = db.T_Product.Where(x => x.id_product == item.id_product);
-
-                    foreach (var product in dbProductList)
-                    {
-                        T_Product productInfos = new T_Product();
-
-                        productInfos.id_product = product.id_product;
-                        productInfos.name_product = product.name_product;
-                        productInfos.qty_product = product.qty_product;
-                        productInfos.color_product = product.color_product;
-                        productInfos.price_product = product.price_product;
-                        productInfos.desc_product = product.desc_product;
-                        productInfos.id_imgproduct = product.id_imgproduct;
-                        productInfos.type_product = product.type_product;
-                        productInfos.height_product = product.height_product;
-                        product.lenght_product = product.height_product;
-                        product.width_product = product.width_product;
-
-                        productList.Add(productInfos);
-                    }
-
-                    itemInfos.id_basketitem = item.id_basketitem;
-                    itemInfos.id_basket = item.id_basket;
-                    itemInfos.id_product = item.id_product;
-                    itemInfos.qty_basketitem = item.qty_basketitem;
-
-                    itemList.Add(itemInfos);
-                }
-                T_Basketitem.id_activeBasket = obj;
-                T_Basketitem.basketitemList = itemList;
-                T_Basketitem.basketProductList = productList;
-            }
-        }
+        #endregion
     }
 
 

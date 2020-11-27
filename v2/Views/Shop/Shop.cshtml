@@ -1,5 +1,4 @@
-﻿@model v2.Models.T_Product
-@using v2.Models
+﻿@model  IEnumerable<v2.Models.T_Product>
 
 <div id="shopHolder" class="container">
 
@@ -93,10 +92,8 @@
 
         <div id="shopContent" class="row col-8">
 
-            @foreach (var item in T_Product.productList)
+            @foreach (var item in Model)
             {
-                string idModal = item.id_product + "_modal";
-
                 <div class="col-4">
                     <div class="card">
                         <img height="120" src="~/Ressources/samplePrint_1.jpg" />
@@ -120,54 +117,6 @@
                     </div>
                 </div>
             }
-
-            @if (Session["ActiveProduct"] != null)
-            {
-                foreach (var item in T_Product.productActive)
-                {
-                    <div class="modal fade" id="modalProduct" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <div class="row">
-
-                                        <div class="col-3">
-                                            <img style="width:inherit" src="~/Ressources/samplePrint_1.jpg" />
-                                        </div>
-
-                                        <div class="col-5">
-                                            <h2>@item.name_product</h2>
-                                            <p>Référence: @item.id_imgproduct</p>
-
-                                            <hr class="my-4" />
-
-                                            @item.desc_product
-                                        </div>
-
-                                        <div class="col-4">
-                                            @item.price_product
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                                    <button type="button" class="btn btn-success">Ajouter au panier</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    Session.Remove("ActiveProduct");
-                }
-            }
-
-
-
-
-
 
             @*
 

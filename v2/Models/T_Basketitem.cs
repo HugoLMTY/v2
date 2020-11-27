@@ -19,6 +19,8 @@ namespace v2.Models
         public Nullable<int> id_product { get; set; }
         public int qty_basketitem { get; set; }
     
+        public int price_basketitem { get; set; }
+
         public virtual T_Basket T_Basket { get; set; }
         public virtual T_Product T_Product { get; set; }
 

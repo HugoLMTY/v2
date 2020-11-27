@@ -1,16 +1,69 @@
-﻿@model v2.Models.T_Basketitem
-@using v2.Models
+﻿@model  IEnumerable<v2.Models.T_Product>
 
-@{
-    ViewBag.Title = "BasketDetails";
-}
 
-<h2>Commande n°@T_Basketitem.id_activeBasket</h2>
-
-@foreach (var item in T_Basketitem.basketProductList)
+@Ajax.ActionLink("Retour", "Profil", new AjaxOptions
 {
-    <p>
-        <strong>x @item.qty_product </strong>
-        @item.name_product
-    </p>
-}
+    InsertionMode = InsertionMode.Replace
+})
+
+<h2>Commande n°@ViewBag.ActiveBasket</h2>
+
+
+<h1>Artlicles commandés</h1>
+
+<table>
+    <thead>
+        <tr>
+            <td>
+                Article
+            </td>
+
+            <td>
+                Ref
+            </td>
+
+            <td>
+                Prix unitaire
+            </td>
+
+            <td>
+                Qté
+            </td>
+
+            <td>
+                Total
+            </td>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="style1">
+                <td>
+                    @item.name_product
+                </td>
+
+                <td>
+                    @item.id_product
+                </td>
+
+                <td>
+                    @item.price_product€
+                </td>
+
+                <td>
+                    Commandés: @item.qty_product
+                </td>
+
+                <td>
+                    @{ var total = item.price_product * item.qty_product; }
+
+                    @total€
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>    

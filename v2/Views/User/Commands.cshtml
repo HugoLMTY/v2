@@ -1,0 +1,81 @@
+﻿@model IEnumerable<v2.Models.T_Basket>
+
+@*<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
+@*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+
+<table id="tableBasketList">
+    <thead>
+        <tr>
+            <td>
+                Référence
+            </td>
+
+            <td>
+                Nombre d'articles
+            </td>
+
+            <td>
+                Date de commande
+            </td>
+
+            <td>
+                Prix total
+            </td>
+
+            <td>
+                Status de la commande
+            </td>
+
+            <td>
+            </td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="style1">
+                <td id="tableBasketId">
+                    <string>
+                        @item.id_basket
+                    </string>
+                </td>
+
+                <td id="tableBasketQty">
+                    <string>
+                        @item.qty_basket
+                    </string>
+                </td>
+
+                <td id="tableBasketDate" style="text-align:center">
+                    <string>
+                        @item.date_basket.ToShortDateString()
+                    </string>
+                </td>
+
+                <td id="tableBasketPrice">
+                    <string>
+                        <strong>
+                            @item.price_basket€
+                        </strong>
+                    </string>
+                </td>
+
+                <td id="tableBasketStatus" style="font-style:italic">
+                    <string>
+                        @item.status_basket
+                    </string>
+                </td>
+
+                <td id="tableBasketMore">
+                    @Html.ActionLink("Détails de la commande", "BasketDetails", "User",
+                   new {obj = item.id_basket})
+                   @*new AjaxOptions {
+                       InsertionMode = InsertionMode.Replace,
+                       UpdateTargetId = "tableBasketList"
+                   })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

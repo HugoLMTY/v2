@@ -39,5 +39,8 @@ namespace v2.Models
         public static List<T_Product> productList { get; set; }
 
         public static List<T_Product> productActive { get; set; }
+
+
+        public int total_basketitem { get; set; }
     }
 }
