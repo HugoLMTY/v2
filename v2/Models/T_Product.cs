@@ -32,9 +32,12 @@ namespace v2.Models
         public Nullable<double> lenght_product { get; set; }
         public Nullable<double> width_product { get; set; }
         public string path_imgproduct { get; set; }
+
+        public Nullable<int> id_user { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Basketitem> T_Basketitem { get; set; }
+        public virtual ICollection<T_User> T_User { get; set; }
         public virtual T_Imgproduct T_Imgproduct { get; set; }
 
         public static List<T_Product> productList { get; set; }

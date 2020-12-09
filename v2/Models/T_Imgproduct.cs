@@ -11,7 +11,7 @@ namespace v2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class T_Imgproduct
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,11 +19,11 @@ namespace v2.Models
         {
             this.T_Product = new HashSet<T_Product>();
         }
-    
+
         public int id_imgproduct { get; set; }
         public string path_imgproduct { get; set; }
         public string name_product { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Product> T_Product { get; set; }
     }

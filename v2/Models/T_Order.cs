@@ -11,7 +11,7 @@ namespace v2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class T_Order
     {
         public int id_order { get; set; }
@@ -20,7 +20,7 @@ namespace v2.Models
         public string comment_order { get; set; }
         public string filepath_order { get; set; }
         public string status_order { get; set; }
-    
+
         public virtual T_Basket T_Basket { get; set; }
 
         public static List<T_Order> orderList { get; set; }

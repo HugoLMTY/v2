@@ -11,7 +11,7 @@ namespace v2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class T_Basketitem
     {
         public int id_basketitem { get; set; }

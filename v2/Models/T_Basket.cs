@@ -21,7 +21,7 @@ namespace v2.Models
             this.T_Basketitem = new HashSet<T_Basketitem>();
             this.T_Order = new HashSet<T_Order>();
         }
-    
+
         public int id_basket { get; set; }
 
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
@@ -30,7 +30,7 @@ namespace v2.Models
         public int price_basket { get; set; }
         public Nullable<int> id_user { get; set; }
         public string status_basket { get; set; }
-    
+
         public virtual T_User T_User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Basketitem> T_Basketitem { get; set; }

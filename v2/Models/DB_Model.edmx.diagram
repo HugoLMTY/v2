@@ -16,6 +16,7 @@
         <AssociationConnector Association="DB_YnovModel.FK__T_Order__id_bask__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="DB_YnovModel.FK__T_Basketi__id_pr__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="DB_YnovModel.FK__T_Product__id_im__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_YnovModel.FK__T_Product__id_us__34C8D9D1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

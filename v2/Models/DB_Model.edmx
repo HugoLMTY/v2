@@ -60,6 +60,7 @@
           <Property Name="lenght_product" Type="float" />
           <Property Name="width_product" Type="float" />
           <Property Name="path_imgproduct" Type="varchar" MaxLength="100" />
+          <Property Name="id_user" Type="int" />
         </EntityType>
         <EntityType Name="T_User">
           <Key>
@@ -135,6 +136,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__T_Product__id_us__34C8D9D1">
+          <End Role="T_User" Type="Self.T_User" Multiplicity="0..1" />
+          <End Role="T_Product" Type="Self.T_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="T_Product">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DB_YnovModelStoreContainer">
           <EntitySet Name="T_Basket" EntityType="Self.T_Basket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="T_Basketitem" EntityType="Self.T_Basketitem" Schema="dbo" store:Type="Tables" />
@@ -160,6 +173,10 @@
           </AssociationSet>
           <AssociationSet Name="FK__T_Product__id_im__276EDEB3" Association="Self.FK__T_Product__id_im__276EDEB3">
             <End Role="T_Imgproduct" EntitySet="T_Imgproduct" />
+            <End Role="T_Product" EntitySet="T_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_Product__id_us__34C8D9D1" Association="Self.FK__T_Product__id_us__34C8D9D1">
+            <End Role="T_User" EntitySet="T_User" />
             <End Role="T_Product" EntitySet="T_Product" />
           </AssociationSet>
         </EntityContainer>
@@ -231,6 +248,8 @@
           <NavigationProperty Name="T_Basketitem" Relationship="Self.FK__T_Basketi__id_pr__2E1BDC42" FromRole="T_Product" ToRole="T_Basketitem" />
           <NavigationProperty Name="T_Imgproduct" Relationship="Self.FK__T_Product__id_im__276EDEB3" FromRole="T_Product" ToRole="T_Imgproduct" />
           <Property Name="path_imgproduct" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_user" Type="Int32" />
+          <NavigationProperty Name="T_User" Relationship="DB_YnovModel.FK__T_Product__id_us__34C8D9D1" FromRole="T_Product" ToRole="T_User" />
         </EntityType>
         <EntityType Name="T_User">
           <Key>
@@ -246,6 +265,7 @@
           <Property Name="tel_user" Type="Int32" Nullable="false" />
           <Property Name="pword_user" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="T_Basket" Relationship="Self.FK__T_Basket__id_use__2A4B4B5E" FromRole="T_User" ToRole="T_Basket" />
+          <NavigationProperty Name="T_Product" Relationship="DB_YnovModel.FK__T_Product__id_us__34C8D9D1" FromRole="T_User" ToRole="T_Product" />
         </EntityType>
         <Association Name="FK__T_Basket__id_use__2A4B4B5E">
           <End Role="T_User" Type="Self.T_User" Multiplicity="0..1" />
@@ -334,7 +354,23 @@
             <End Role="T_Imgproduct" EntitySet="T_Imgproduct" />
             <End Role="T_Product" EntitySet="T_Product" />
           </AssociationSet>
+          <AssociationSet Name="FK__T_Product__id_us__34C8D9D1" Association="DB_YnovModel.FK__T_Product__id_us__34C8D9D1">
+            <End Role="T_User" EntitySet="T_User" />
+            <End Role="T_Product" EntitySet="T_Product" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__T_Product__id_us__34C8D9D1">
+          <End Type="DB_YnovModel.T_User" Role="T_User" Multiplicity="0..1" />
+          <End Type="DB_YnovModel.T_Product" Role="T_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_User">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="T_Product">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -387,6 +423,7 @@
           <EntitySetMapping Name="T_Product">
             <EntityTypeMapping TypeName="DB_YnovModel.T_Product">
               <MappingFragment StoreEntitySet="T_Product">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
                 <ScalarProperty Name="path_imgproduct" ColumnName="path_imgproduct" />
                 <ScalarProperty Name="id_product" ColumnName="id_product" />
                 <ScalarProperty Name="name_product" ColumnName="name_product" />

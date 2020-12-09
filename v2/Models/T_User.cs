@@ -51,6 +51,7 @@ namespace v2.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Basket> T_Basket { get; set; }
+        public virtual ICollection<T_Product> T_Product { get; set; }
 
         public string loginErrorMessage { get; set; }
 
