@@ -1,9 +1,9 @@
-﻿table{
+﻿#tableBasketList {
     margin: 20px;
     width: 100%;
 }
 
-td{
+#tableBasketList td{
     border: 1px solid black;
     background: #0094ff;
     height: 42px;
@@ -14,7 +14,7 @@ td string{
     margin: 10px;
 }
 
-thead{
+#basketListHeader{
     text-align: center;
     font-weight: bold;
     border: 2px solid black;
@@ -26,12 +26,16 @@ thead{
     font-size: 1.5em;
 }
 
-.style2 td{
-    background: lightgray;
-}
-
-
 #tableBasketId, #tableBasketQty, #tableBasketPrice {
     width: 69px;
 }
+
+
+
+
+.sellingList:hover {
+    box-shadow: 1px 1px 10px #00bfff;
+    border-radius: 10px;
+    transform: scale(1.05);
+
 }

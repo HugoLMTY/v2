@@ -1,10 +1,6 @@
-﻿@model IEnumerable<v2.Models.T_Basket>
-
-@*<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
-@*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
-
+﻿
 <table id="tableBasketList">
-    <thead>
+    <thead id="basketListHeader">
         <tr>
             <td>
                 Référence
@@ -32,7 +28,7 @@
     </thead>
 
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.basket)
         {
             <tr class="style1">
                 <td id="tableBasketId">

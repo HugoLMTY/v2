@@ -1,7 +1,154 @@
-﻿
-@{
-    ViewBag.Title = "SellingList";
-}
+﻿<div class="sellingListHolder">
+    <table width="85%" class="mx-auto">
+        <thead id="sellinglistHeader">
+        <td width="">
+        </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; height:50px; width: 100px;">
+            Articles
+        </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 120px">
+            Dimensions
+        </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 75px;">
+            Prix
+        </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; width:75px;">
+            Référence
+        </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 75px">
+            Status
+        </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 100px">
+            Actions
+        </td>
+        </thead>
 
-<h2>SellingList</h2>
+        <tr style="transition:0.2s; height: 150px;" class="sellingList">
+            <td>
+                <img width="150px" style="border-radius:5px; box-shadow: 1px 1px 15px gray" src="~/Ressources/samplePrint_1.jpg" alt="..." />
+            </td>
+            <td style="text-align:center; margin: 50px; font-size: 2em;">
+                sample 5
+            </td>
+            <td style="text-align:center">
+                4 x 6 x 7 (cm)
+            </td>
+            <td style="text-align:center">
+
+                467€
+            </td>
+            <td style="text-align:center">
+                10
+            </td>
+            <td style="text-align:center">
+                sold
+            </td>
+            <td>
+                <button style="width:100px; margin: 15px; margin-left:70px" class="btn btn-success disabled">Vendu!</button>
+                <button style="width:100px; margin-left:0px" class="btn btn-danger ">Supprimer</button>
+            </td>
+        </tr>
+
+        @foreach (var item in Model.selling)
+        {
+            <tr style="transition:0.2s; height: 130px; margin-left:10px" class="sellingList">
+                <td>
+                    <img width="150px" style="border-radius:5px; box-shadow: 1px 1px 15px gray" src="@item.path_imgproduct" alt="@item.name_product" />
+                </td>
+                <td style="text-align:center; margin: 50px; font-size: 2em;">
+                    @item.name_product
+                </td>
+                <td style="text-align:center">
+                    @item.lenght_product x @item.width_product x @item.height_product (cm)
+                </td>
+                <td style="text-align:center">
+
+                    @item.price_product€
+                </td>
+                <td style="text-align:center">
+                    @item.id_product
+                </td>
+                <td style="text-align:center">
+                    pending
+                </td>
+                <td>
+
+                    <button style="width:220px; margin-left:70px; margin-right: 10px;" class="btn btn-context">Vente</button>
+                    <br />
+                    <button style="width:100px; margin: 15px; margin-left:70px" class="btn btn-context ">Modifier</button>
+                    <button style="width:100px; margin-left:0px" class="btn btn-c btn-danger ">Supprimer</button>
+                </td>
+            </tr>
+        }
+
+
+    </table>
+
+
+
+
+    @*<div class="row col-12" id="sellingListHeader">
+            <div class="col-5">
+                <p>
+                Articles
+
+                </p>
+            </div>
+            <div class="col-2">
+                <p>
+                Dimensions
+
+                </p>
+            </div>
+            <div class="col-1">
+                <p>
+                Prix
+
+                </p>
+            </div>
+            <div class="col-1">
+                <p>
+                Référence
+
+                </p>
+            </div>
+            <div class="col-3">
+                <p>
+                Actions
+
+                </p>
+            </div>
+        </div>
+
+        @foreach (var item in Model.selling)
+        {
+            <div class="row col-12">
+                <div class="col-3 sellingListImg" id="">
+                    <img src="@item.path_imgproduct" style="width:inherit" alt="@item.name_product" />
+                </div>
+
+                <div class="col-2 sellingListName" id="">
+                    @item.name_product
+                </div>
+
+                <div class="col-2 sellingListDimensions" id="">
+                    @item.lenght_product x @item.width_product x @item.height_product (cm)
+                </div>
+
+                <div class="col-1 sellingListPrice" id="">
+                    @item.price_product€
+                </div>
+
+                <div class="col-1 sellingListProductId" id="">
+                    @item.id_product
+                </div>
+
+                <div class="row col-3 sellingListActions" id="">
+                    <button class="btn btn-context col-12">Vente</button>
+                    <button class="btn btn-context col-12">Modifier</button>
+                    <button class="btn btn-danger col-12">Supprimer</button>
+                </div>
+            </div>
+        }*@
+</div>
 

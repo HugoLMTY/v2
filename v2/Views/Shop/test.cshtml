@@ -112,3 +112,55 @@
     }*@
 
 
+
+
+
+@*<table>
+    <tr>
+        <td>
+            Articles
+        </td>
+        <td>
+            Dimensions
+        </td>
+        <td>
+            Prix
+        </td>
+        <td>
+            Référence
+        </td>
+        <td>
+            Actions
+        </td>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="@item.path_imgproduct" alt="@item.name_product" />
+            </td>
+            <td>
+                @item.name_product
+            </td>
+            <td>
+                @item.lenght_product x @item.width_product x @item.height_product (cm)
+            </td>
+            <td>
+
+                @item.price_product€
+            </td>
+            <td>
+
+                @item.id_product
+            </td>
+            <td class="row">
+                <button class="btn btn-context col-12">Vente</button>
+                <button class="btn btn-context col-12">Modifier</button>
+                <button class="btn btn-danger col-12">Supprimer</button>
+            </td>
+        </tr>
+    }
+</table>*@

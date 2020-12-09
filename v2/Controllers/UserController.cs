@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -31,20 +32,28 @@ namespace v2.Controllers
         {
             using (DB_YnovEntities db = new DB_YnovEntities())
             {
-                return View(db.T_Basket.Where(x => x.id_user == T_User.activeUser).ToList());
+
+                dynamic profilInfos = new ExpandoObject();
+
+
+                
+
+                profilInfos.basket = db.T_Basket.Where(x => x.id_user == T_User.activeUser).ToList();
+                profilInfos.selling = db.T_Product.Where(y => y.id_user == T_User.activeUser).ToList();
+
+                
+
+                return View(profilInfos);
             }
         }
 
-        public ActionResult BasketDetails(int obj)
+        public static string getSellingStatus(int id)
         {
             using (DB_YnovEntities db = new DB_YnovEntities())
             {
-                ViewBag.ActiveBasket = obj;
-                IEnumerable<T_Product> query = db.T_Product.SqlQuery(
-                    "select * from T_Product pro where pro.id_product in (select id_product from T_Basketitem where id_basket = ( select id_basket from T_User where id_user = " + T_User.activeUser + " ))"
-                    ).ToList();
-
-                return View("BasketDetails", query);
+                //T_Basket status = db.T_Basket.SqlQuery(
+                //    "select status_basket from T_Basket where id_user = 9").FirstOrDefault();
+                return "Pending";
             }
         }
 
@@ -52,7 +61,7 @@ namespace v2.Controllers
 
         public ActionResult Autherize(T_User model)
         {
-            using(DB_YnovEntities db = new DB_YnovEntities())
+            using (DB_YnovEntities db = new DB_YnovEntities())
             {
                 var userInfos = db.T_User.Where(x => x.mail_user == model.mail_user && x.pword_user == model.pword_user).FirstOrDefault();
                 if (userInfos == null)
@@ -123,6 +132,26 @@ namespace v2.Controllers
         }
 
         #endregion
+
+
+        public ActionResult BasketDetails(int obj)
+        {
+            using (DB_YnovEntities db = new DB_YnovEntities())
+            {
+                ViewBag.ActiveBasket = obj;
+                IEnumerable<T_Product> query = db.T_Product.SqlQuery(
+                    "select * from T_Product pro where pro.id_product in (select id_product from T_Basketitem where id_basket = ( select id_basket from T_User where id_user = " + T_User.activeUser + " ))"
+                    ).ToList();
+
+                return View("BasketDetails", query);
+            }
+        }
+
+        public PartialViewResult SellingList()
+        {
+            return PartialView();
+        }
+
     }
 
 
