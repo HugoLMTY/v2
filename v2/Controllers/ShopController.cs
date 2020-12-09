@@ -16,16 +16,21 @@ namespace v2.Controllers
         {
             using (DB_YnovEntities db = new DB_YnovEntities())
             {
-                return View(db.T_Product.ToList()); 
+                T_Product.productList = db.T_Product.ToList();
             }
+            return View();
         }
 
         public ActionResult Commands()
         { return RedirectToAction("Commands", "Home"); }
 
         public ActionResult test()
-        { return RedirectToAction("test", "Home"); }
-
+        {
+            using (DB_YnovEntities db = new DB_YnovEntities())
+            {
+                return View(db.T_Product.ToList()); 
+            }
+        }
 
         public ActionResult Profil()
         { return RedirectToAction("Profil", "User"); }
@@ -35,5 +40,25 @@ namespace v2.Controllers
 
         public ActionResult CreateAccount()
         { return RedirectToAction("CreateAccount", "User"); }
+
+
+        public static string getPathImg(int? id)
+        {
+            using (DB_YnovEntities db = new DB_YnovEntities())
+            {
+                T_Imgproduct path;
+
+                path = db.T_Imgproduct.Where(x => x.id_imgproduct == id).FirstOrDefault();
+
+
+                return path.path_imgproduct;
+            }
+        }
+
+        public ActionResult Filtering()
+        {
+            return View();
+
+        }
     }
 }

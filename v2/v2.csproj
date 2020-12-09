@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -183,6 +183,7 @@
     <Content Include="Content\mainStyle.css" />
     <Content Include="Content\profilStyle.css" />
     <Content Include="Content\shopStyle.css" />
+    <Content Include="Content\testStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -196,6 +197,8 @@
       <DependentUpon>DB_Model.edmx</DependentUpon>
       <LastGenOutput>DB_Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Ressources\samplePrint_32.jpg" />
+    <Content Include="Ressources\samplePrint_4.jpg" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Ressources\logo.png" />
     <Content Include="Ressources\samplePrint_1.jpg" />
@@ -236,10 +239,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shop\Shop.cshtml" />
     <Content Include="Views\User\CreateAccount.cshtml" />
-    <Content Include="Views\Home\test.cshtml" />
+    <Content Include="Views\Shop\test.cshtml" />
     <Content Include="Views\User\Profil.cshtml" />
     <Content Include="Views\User\BasketDetails.cshtml" />
     <Content Include="Views\User\Commands.cshtml" />
+    <Content Include="Views\Shop\ProductDetails.cshtml" />
+    <Content Include="Views\Shop\ProductList.cshtml" />
+    <Content Include="Views\User\SellingList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Profil\" />

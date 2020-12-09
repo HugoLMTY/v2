@@ -1,4 +1,5 @@
-﻿@model  IEnumerable<v2.Models.T_Product>
+﻿@model v2.Models.T_Product
+@using v2.Models
 
 <div id="shopHolder" class="container">
 
@@ -9,77 +10,159 @@
     </div>
 
     <div class="shopContainer row">
+        <div id="filterHolder" class="col-4">
+
+            <h2>Filtres</h2>
+
+            <div class="filterSeparator"></div>
+
+            @Html.EditorFor(Model => Model.name_product, new { placeholder = "Rechercher un produit", autofill = false, @class = "form-control mx-auto" })
+
+            <p>Prix</p>
+            @Html.EditorFor(Model => Model.price_product, new { type = "number", placeholder = "1", autofill = false })
+
+
+            <div class="filterSeparator"></div>
+
+        </div>
+        <div id="shopContent" class="row col-8">
+
+            @foreach (var item in T_Product.productList)
+            {
+                <div class="col-4">
+                    <div class="cardWrap">
+                        <div class="card">
+                            <img height="120" src="@item.path_imgproduct" />
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h2>
+                                        @item.name_product
+                                    </h2>
+                                </div>
+
+                                <div class="card-text">
+                                    <p style="font-weight:bold">@item.desc_product</p>
+                                    <p>
+                                        @item.lenght_product x @item.width_product x @item.height_product (cm)<br />
+                                        Quantité: @item.qty_product.
+                                    </p>
+                                    <p style="font-weight:bold">@item.price_product€</p>
+                                </div>
+                                @Html.ActionLink("Plus d'infos", "getActiveProduct", "Shop", @item.id_product, new { type = "button", @class = "btn btn-context", data_toggle = "modal", data_target = "#modalProduct" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
 
 
 
-        <div id="shopFilter" class="col-4">
 
-            <p id="filterTitle">
-                Les Filtres
+
+@*
+
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>*@
+
+
+
+@*<div id="shopFilter" class="col-4">
+
+        <p id="filterTitle">
+            Les Filtres
+        </p>
+
+        <div class="filterSeparator"></div>
+
+        <div id="filterColor">
+
+            <p class="filterHeader">
+                Trier par couleur:
             </p>
 
-            <div class="filterSeparator"></div>
-
-            <div id="filterColor">
-
-                <p class="filterHeader">
-                    Trier par couleur:
-                </p>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="fitlerColorChoice1" value="Red" />
-                    <label class="form-check-label" for="fitlerColorTextChoice1">Rouge</label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="fitlerColorChoice1" value="Green" />
-                    <label class="form-check-label" for="fitlerColorTextChoice1">Vert</label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="fitlerColorChoice1" value="Blue" />
-                    <label class="form-check-label" for="fitlerColorTextChoice1">Bleu</label>
-                </div>
-
-
-                <select class="custom-select custom-select-lg">
-                    <option selected>Choisissez une couleur</option>
-                    <option value="1">Rouge</option>
-                    <option value="2">Vert</option>
-                    <option value="3">Bleu</option>
-                </select>
-
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="fitlerColorChoice1" value="Red" />
+                <label class="form-check-label" for="fitlerColorTextChoice1">Rouge</label>
             </div>
 
-            <div class="filterSeparator"></div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="fitlerColorChoice1" value="Green" />
+                <label class="form-check-label" for="fitlerColorTextChoice1">Vert</label>
+            </div>
 
-            <div id="filterPrice">
-                <div class="form-group">
-                    <label for="formControlRange">Prix:</label>
-                    <input type="range" class="form-control-range" id="formControlRange">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="fitlerColorChoice1" value="Blue" />
+                <label class="form-check-label" for="fitlerColorTextChoice1">Bleu</label>
+            </div>
+
+
+            <select class="custom-select custom-select-lg">
+                <option selected>Choisissez une couleur</option>
+                <option value="1">Rouge</option>
+                <option value="2">Vert</option>
+                <option value="3">Bleu</option>
+            </select>
+
+        </div>
+
+        <div class="filterSeparator"></div>
+
+        <div id="filterPrice">
+            <div class="form-group">
+                <label for="formControlRange">Prix:</label>
+                <input type="range" class="form-control-range" id="formControlRange">
+            </div>
+        </div>
+
+        <div class="filterSeparator"></div>
+
+        <div id="filterIntra" class="form-check form-check-inline">
+            <form>
+                <label for="filterIntraOption">aaaaaaaaaaa:</label>
+                <br />
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="filterIntraOption" id="filterIntraCheckTrue" value="true" />
+                    <label class="form-check-label" for="filterIntraTrue">Oui</label>
                 </div>
-            </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="filterIntraOption" id="filterIntraCheckFalse" value="false" />
+                    <label class="form-check-label" for="filterIntraFalse">Non</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="filterIntraOption" id="filterIntraCheckFalse" value="false" disabled />
+                    <label class="form-check-label" for="filterIntraFalse">Maybe</label>
+                </div>
+            </form>
+        </div>
 
-            <div class="filterSeparator"></div>
+        <br />
+        <br />
+        <br />
 
-            <div id="filterIntra" class="form-check form-check-inline">
-                <form>
-                    <label for="filterIntraOption">aaaaaaaaaaa:</label>
-                    <br />
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="filterIntraOption" id="filterIntraCheckTrue" value="true" />
-                        <label class="form-check-label" for="filterIntraTrue">Oui</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="filterIntraOption" id="filterIntraCheckFalse" value="false" />
-                        <label class="form-check-label" for="filterIntraFalse">Non</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="filterIntraOption" id="filterIntraCheckFalse" value="false" disabled />
-                        <label class="form-check-label" for="filterIntraFalse">Maybe</label>
-                    </div>
-                </form>
-            </div>
+        <div class="validFilter mx-auto">
             <button class="btn btn-default">
                 Annuler
             </button>
@@ -88,60 +171,4 @@
                 Valider
             </button>
         </div>
-
-
-        <div id="shopContent" class="row col-8">
-
-            @foreach (var item in Model)
-            {
-                <div class="col-4">
-                    <div class="card">
-                        <img height="120" src="~/Ressources/samplePrint_1.jpg" />
-                        <div class="card-body">
-                            <div class="card-title">
-                                <h2>
-                                    @item.name_product
-                                </h2>
-                            </div>
-
-                            <div class="card-text">
-                                <p style="font-weight:bold">@item.desc_product</p>
-                                <p>
-                                    @item.lenght_product x @item.width_product x @item.height_product (cm)<br />
-                                    Quantité: @item.qty_product.
-                                </p>
-                                <p style="font-weight:bold">@item.price_product€</p>
-                            </div>
-                            @Html.ActionLink("Plus d'infos", "getActiveProduct", "Shop", @item.id_product, new { type = "button", @class = "btn btn-primary", data_toggle = "modal", data_target = "#modalProduct" })
-                        </div>
-                    </div>
-                </div>
-            }
-
-            @*
-
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-4">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>*@
-
-        </div>
-    </div>
-</div>
+    </div>*@

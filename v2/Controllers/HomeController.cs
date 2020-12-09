@@ -13,6 +13,7 @@ namespace v2.Controllers
         {
             Session["CurrentUser"] = 9;
             T_User.activeUser = 9;
+            T_User.typeUser = 3;
             return View(); 
         }
 
@@ -20,13 +21,8 @@ namespace v2.Controllers
         { return RedirectToAction("Shop","Shop"); }
 
         public ActionResult test()
-        {
-            using (DB_YnovEntities db = new DB_YnovEntities())
-            {
-                return View(db.T_User.ToList());
-            }
-        }
-        
+        { return RedirectToAction("test", "Shop"); }
+
         public ActionResult Profil()
         { return RedirectToAction("Profil","User"); }
 

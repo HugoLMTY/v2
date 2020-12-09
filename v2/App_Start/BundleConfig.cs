@@ -29,6 +29,7 @@ namespace v2
                 "~/Content/shopStyle.css",
                 "~/Content/connexionStyle.css",
                 "~/Content/profilStyle.css",
+                "~/Content/testStyle.css",
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
         }

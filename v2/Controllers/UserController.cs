@@ -73,6 +73,7 @@ namespace v2.Controllers
                     Response.Cookies.Add(userId);
 
                     T_User.activeUser = userInfos.id_user;
+                    T_User.typeUser = userInfos.type_user;
 
                     return RedirectToAction("Index", "Home");
                 }

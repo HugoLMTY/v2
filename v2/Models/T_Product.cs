@@ -31,6 +31,7 @@ namespace v2.Models
         public Nullable<double> height_product { get; set; }
         public Nullable<double> lenght_product { get; set; }
         public Nullable<double> width_product { get; set; }
+        public string path_imgproduct { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_Basketitem> T_Basketitem { get; set; }

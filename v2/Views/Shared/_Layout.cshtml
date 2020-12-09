@@ -16,74 +16,78 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="~/Ressources/logo.png" height="50" alt="YN2SC" />
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-
-                <li class="nav-item active">
-                    @Html.ActionLink("Accueil", "Index", "Home", new { @class = "nav-link" })
-                </li>
-
-                <div class="navSeparator"></div>
-
-                <li class="nav-item">
-                    @Html.ActionLink("Boutique", "Shop", "Home", new { @class = "nav-link" })
-                </li>
-
-                <div class="navSeparator"></div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
 
 
-                <li class="nav-item">
-                    @Html.ActionLink("Test", "test", "Home", new { @class = "nav-link" })
-                </li>
-
-                <div class="navSeparator"></div>
-
-                <li class="nav-item">
-                    @Html.ActionLink("Commandes", "Commands", "Home", new { @class = "nav-link" })
-                </li>
-
-                <div class="navSeparator"></div>
-
-                <li class="nav-item">
-                    @Html.ActionLink("Subjecct", "test", "Home", new { @class = "nav-link" })
-                </li>
-
-                @if (Session["CurrentUser"] != null)
-                {
-
-                    <div class="navSeparator"></div>
+            <a class="navbar-brand" href="#">
+                <img src="~/Ressources/logo.png" alt="YN2SC" id="navLogo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
 
                     <li class="nav-item">
-                        @Html.ActionLink("Profil", "Profil", "Home", new { @class = "nav-link" })
+                        @Html.ActionLink("Accueil", "Index", "Home", new { @class = "nav-link" })
                     </li>
 
-                    <div class="navSeparator"></div>
-                }
-                else
-                {
-
-                    <div class="navSeparator"></div>
+                    <div class="navSpacing"></div>
 
                     <li class="nav-item">
-                        @Html.ActionLink("Créer un compte", "CreateAccount", "Home", new { @class = "nav-link" })
+                        @Html.ActionLink("Boutique", "Shop", "Home", new { @class = "nav-link" })
                     </li>
 
-                    <div class="navSeparator"></div>
+                    <div class="navSpacing"></div>
+
 
                     <li class="nav-item">
-                        @Html.ActionLink("Connexion", "Connexion", "Home", new { @class = "nav-link" })
+                        @Html.ActionLink("Test", "test", "Home", new { @class = "nav-link" })
                     </li>
-                }
-            </ul>
 
-            <p id="navUserName" class="my-2 text-right my-lg-0">@Session["CurrentNameUser"]</p>
+                    <div class="navSpacing"></div>
+
+                    <li class="nav-item">
+                        @Html.ActionLink("Commandes", "Commands", "Home", new { @class = "nav-link" })
+                    </li>
+
+                    <div class="navSpacing"></div>
+
+                    <li class="nav-item">
+                        @Html.ActionLink("Subjecct", "test", "Home", new { @class = "nav-link" })
+                    </li>
+
+                    @if (Session["CurrentUser"] != null)
+                    {
+
+                        <div class="navSpacing"></div>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Profil", "Profil", "Home", new { @class = "nav-link" })
+                        </li>
+
+                        <div class="navSpacing"></div>
+                    }
+                    else
+                    {
+
+                        <div class="navSpacing"></div>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Créer un compte", "CreateAccount", "Home", new { @class = "nav-link" })
+                        </li>
+
+                        <div class="navSpacing"></div>
+
+                        <li class="nav-item">
+                            @Html.ActionLink("Connexion", "Connexion", "Home", new { @class = "nav-link" })
+                        </li>
+                    }
+                </ul>
+
+                <p id="navUserName" class="my-2 text-right my-lg-0">@Session["CurrentNameUser"]</p>
+            </div>
         </div>
     </nav>
 

@@ -1,4 +1,6 @@
-﻿@{
+﻿@using v2.Models
+
+@{
     ViewBag.Title = "Profil";
     if (Session["CurrentUser"] == null)
     {
@@ -28,6 +30,10 @@
             <a class="list-group-item list-group-item-action text-center active" data-toggle="list" href="#home" role="tab">Profil</a>
             <a class="list-group-item list-group-item-action text-center" data-toggle="list" href="#profile" role="tab">Commandess</a>
             <a class="list-group-item list-group-item-action text-center" data-toggle="list" href="#messages" role="tab">Réglages</a>
+            @if (T_User.typeUser == 2 || T_User.typeUser == 3)
+            {
+                <a class="list-group-item list-group-item-action text-center" data-toggle="list" href="#selling" role="tab">Articles en vente</a>
+            }
             <button type="button" class="list-group-item list-group-item-action bg-danger text-white text-center" data-toggle="modal" data-target="#logoffModal">
                 Déconnexion
             </button>
@@ -41,7 +47,12 @@
             <div class="tab-pane" id="profile" role="tabpanel">
                 
             </div>
-            <div class="tab-pane" id="messages" role="tabpanel">..ZF.</div>
+            <div class="tab-pane" id="messages" role="tabpanel">
+
+            </div>
+            <div class="tab-pane" id="selling" role="tabpanel">
+                @Html.Partial("SellingList")
+            </div>
         </div>
     </div>
 
