@@ -1,10 +1,42 @@
-﻿/*background: #30c4fc;*/
+﻿
+/*---------------------------------------MULTI STYLE------------------------------------------------------*/
 
-html{
+html {
+/*background: #30c4fc;*/
     margin: 0;
     overflow-x: hidden;
-    font-family: bansh
+    font-family: bahnschrift;
 }
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    background: linear-gradient(90turn, #30c4fc, #66e0ff); !important;
+    border: 0px;
+}
+
+.btn-context {
+    background: linear-gradient(90deg, #80dfff, #33ccff) !important;
+    width: 100%;
+}
+
+.mainTitle {
+    border: 3px solid black;
+    padding: 50px;
+    margin: 20px;
+    width: 50%;
+}
+
+.mainTitle p {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+#mainBgImg {
+    width: 105%;
+    margin-left: -25px;
+}
+
+/*---------------------------------------NAV------------------------------------------------------*/
 
 .nav-link{
     font-size: 1.5em;
@@ -30,29 +62,11 @@ nav li:hover {
     transform: scale(1.2);
 }
 
-.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-    background: linear-gradient(90turn, #30c4fc, #66e0ff); !important;
-    border: 0px;
-}
+/*---------------------------------------INDEX------------------------------------------------------*/
 
-.indexCarouselImg{
-    max-height: 420px;
-}
-
-.mainTitle {
-    border: 3px solid black;
-    padding: 50px;
-    margin: 20px;
-    width: 50%;
-}
-
-.mainTitle p {
-    text-align: center;
-    font-size: 2.5em;
-    font-weight: bold;
-}
-
-#mainBgImg {
-    width: 105%;
-    margin-left: -25px;
+.indexImg {
+    /*background-image: url("../Ressources/samplePrint_32.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;*/
 }

@@ -11,9 +11,12 @@ namespace v2.Controllers
     {
         public ActionResult Index()
         {
+
+            //Conn auto pour les tests
             Session["CurrentUser"] = 9;
             T_User.activeUser = 9;
             T_User.typeUser = 3;
+
             return View(); 
         }
 
