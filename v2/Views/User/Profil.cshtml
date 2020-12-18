@@ -21,7 +21,7 @@
 
     <div class="jumbotron">
 
-        <h1 class="display-4">@Session["CurrentNameUser"]</h1>
+        <h1 class="display-4">Bonjour, @Session["CurrentNameUser"]</h1>
 
         <p class="lead"> Voici votre articles actuellement sur la boutique. Vous pouvez modifier vos annonces, passer en mode Vente ou les supprimer.</p>
 
@@ -29,7 +29,7 @@
 
         <div class="list-group list-group-horizontal" id="myList" role="tablist">
             <a class="list-group-item list-group-item-action text-center active" data-toggle="list" href="#home" role="tab">Profil</a>
-            <a class="list-group-item list-group-item-action text-center" data-toggle="list" href="#profile" role="tab">Commandess</a>
+            <a class="list-group-item list-group-item-action text-center" data-toggle="list" href="#profile" role="tab">Commandes</a>
             <a class="list-group-item list-group-item-action text-center" data-toggle="list" href="#messages" role="tab">Réglages</a>
           
                 @if (T_User.typeUser == 2 || T_User.typeUser == 3)

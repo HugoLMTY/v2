@@ -38,19 +38,6 @@ html {
 
 /*---------------------------------------NAV------------------------------------------------------*/
 
-.nav-link{
-    font-size: 1.5em;
-}
-
-#navLogo{
-    height: 69px;
-}
-
-.navSpacing{
-    margin-right: 30px;
-    margin-left: 30px;
-}
-
 nav li{
     margin-top: 25px;
     font-size: 1.2em;
@@ -61,6 +48,24 @@ nav li{
 nav li:hover {
     transform: scale(1.2);
 }
+
+.navSpacing{
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.nav-link{
+    font-size: 1.5em;
+}
+
+#navLogo{
+    height: 69px;
+}
+
+.navUserActions{
+    width: 110%
+}
+
 
 /*---------------------------------------INDEX------------------------------------------------------*/
 

@@ -245,6 +245,7 @@
     <Content Include="Views\Shop\ProductDetails.cshtml" />
     <Content Include="Views\Shop\ProductList.cshtml" />
     <Content Include="Views\User\SellingList.cshtml" />
+    <Content Include="Views\User\test.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

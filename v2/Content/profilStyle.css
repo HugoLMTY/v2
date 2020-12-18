@@ -1,41 +1,5 @@
-﻿#tableBasketList {
-    margin: 20px;
-    width: 100%;
-}
-
-#tableBasketList td{
-    border: 1px solid black;
-    background: #0094ff;
-    height: 42px;
-    min-width: 120px;
-}
-
-td string{
-    margin: 10px;
-}
-
-#basketListHeader{
-    text-align: center;
-    font-weight: bold;
-    border: 2px solid black;
-    border-radius: 15px;
-}
-
-.style1 td{
-    background: white;
-    font-size: 1.5em;
-}
-
-#tableBasketId, #tableBasketQty, #tableBasketPrice {
-    width: 69px;
-}
-
-
-
-
-.sellingList:hover {
+﻿.sellingList:hover, .commandsList:hover {
     box-shadow: 1px 1px 10px #00bfff;
     border-radius: 10px;
     transform: scale(1.05);
-
 }

@@ -58,10 +58,17 @@ namespace v2.Models
         public static int activeUser { get; set; }
         public static int typeUser { get; set; }
         /*
+            0 -> default
             1 -> user
             2 -> seller
             3 -> adm
         */
+
+        public static void Clear()
+        {
+            typeUser = 0;
+            activeUser = 0;
+        }
 
         //public string createErrorMessage { get; set; }
 

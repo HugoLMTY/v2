@@ -16,20 +16,17 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light mx-auto">
         <div class="container">
 
 
-            <a class="navbar-brand" href="#">
-                <img src="~/Ressources/logo.png" alt="YN2SC" id="navLogo" />
-            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
 
-                    <li class="nav-item">
+                    <li style="margin-left:150px" class="nav-item">
                         @Html.ActionLink("Accueil", "Index", "Home", new { @class = "nav-link" })
                     </li>
 
@@ -42,20 +39,14 @@
                     <div class="navSpacing"></div>
 
 
-                    <li class="nav-item">
-                        @Html.ActionLink("Test", "test", "Home", new { @class = "nav-link" })
-                    </li>
+                    <p style="margin-top:10px" href="#">
+                        <img src="~/Ressources/logo.png" alt="YN2SC" id="navLogo" />
+                    </p>
 
                     <div class="navSpacing"></div>
 
                     <li class="nav-item">
-                        @Html.ActionLink("Commandes", "Commands", "Home", new { @class = "nav-link" })
-                    </li>
-
-                    <div class="navSpacing"></div>
-
-                    <li class="nav-item">
-                        @Html.ActionLink("Subjecct", "test", "Home", new { @class = "nav-link" })
+                        @Html.ActionLink("Subjecct", "test", "User", new { @class = "nav-link" })
                     </li>
 
                     @if (Session["CurrentUser"] != null)
@@ -71,18 +62,13 @@
                     }
                     else
                     {
-
                         <div class="navSpacing"></div>
 
-                        <li class="nav-item">
-                            @Html.ActionLink("Créer un compte", "CreateAccount", "Home", new { @class = "nav-link" })
+                        <li>
+                            @Html.ActionLink("S'inscrire/\nSe connecter", "test", "User", new { @class = "nav-link navUserActions" })
                         </li>
 
-                        <div class="navSpacing"></div>
-
-                        <li class="nav-item">
-                            @Html.ActionLink("Connexion", "Connexion", "Home", new { @class = "nav-link" })
-                        </li>
+                        //FAIRE UNE PAGE COMMUNNE
                     }
                 </ul>
 

@@ -1,77 +1,84 @@
-﻿
-<table id="tableBasketList">
-    <thead id="basketListHeader">
-        <tr>
-            <td>
+﻿<div class="commandsListHolder">
+
+    <table width="85%" class="mx-auto" id="tableBasketList">
+        <thead id="basketListHeader">
+            <td style="text-align: center; font-style: italic; font-size: 1.6em; width: 100px; height:112px">
+            </td>
+
+            <td style="text-align:center; font-style:italic; font-size:1.6em; width:120px;">
                 Référence
             </td>
 
-            <td>
+            <td style="text-align:center; font-style:italic; font-size:1.6em; width:120px;">
                 Nombre d'articles
             </td>
 
-            <td>
+            <td style="text-align:center; font-style:italic; font-size:1.6em; width:120px;">
                 Date de commande
             </td>
 
-            <td>
+            <td style="text-align:center; font-style:italic; font-size:1.6em; width:120px;">
                 Prix total
             </td>
 
-            <td>
+            <td style="text-align:center; font-style:italic; font-size:1.6em; width:120px;">
                 Status de la commande
             </td>
 
             <td>
             </td>
-        </tr>
-    </thead>
+        </thead>
 
-    <tbody>
-        @foreach (var item in Model.basket)
-        {
-            <tr class="">
-                <td id="tableBasketId">
-                    <string>
-                        @item.id_basket
-                    </string>
-                </td>
+        <tbody>
+            @foreach (var item in Model.basket)
+            {
+                <tr style="transition: 0.2s; margin-left: 10px;" class="commandsList">
 
-                <td id="tableBasketQty">
-                    <string>
-                        @item.qty_basket
-                    </string>
-                </td>
+                    <td>
+                        <img width="150px" src="~/Ressources/logo.png" alt="Alternate Text" />
+                    </td>
 
-                <td id="tableBasketDate" style="text-align:center">
-                    <string>
-                        @item.date_basket.ToShortDateString()
-                    </string>
-                </td>
 
-                <td id="tableBasketPrice">
-                    <string>
-                        <strong>
-                            @item.price_basket€
-                        </strong>
-                    </string>
-                </td>
+                    <td>
+                        <string>
+                            @item.id_basket
+                        </string>
+                    </td>
 
-                <td id="tableBasketStatus" style="font-style:italic">
-                    <string>
-                        @item.status_basket
-                    </string>
-                </td>
+                    <td style="text-align: center">
+                        <string>
+                            @item.qty_basket
+                        </string>
+                    </td>
 
-                <td id="tableBasketMore">
-                    @Html.ActionLink("Détails de la commande", "BasketDetails", "User",
-                   new {obj = item.id_basket})
-                   @*new AjaxOptions {
-                       InsertionMode = InsertionMode.Replace,
-                       UpdateTargetId = "tableBasketList"
-                   })*@
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    <td style="text-align:center">
+                        <string>
+                            @item.date_basket.ToShortDateString()
+                        </string>
+                    </td>
+
+                    <td style="text-align:center">
+                        <string>
+                            <strong>
+                                @item.price_basket€
+                            </strong>
+                        </string>
+                    </td>
+
+                    <td style="text-align:center; font-style:italic">
+                        <string>
+                            @item.status_basket
+                        </string>
+                    </td>
+
+                    <td id="tableBasketMore">
+                        @Html.ActionLink("Détails de la commande", "BasketDetails", "User",
+                        new { obj = item.id_basket })
+                    </td>
+
+                </tr>
+                <tr style="height:20px"></tr>
+            }
+        </tbody>
+    </table>
+</div>

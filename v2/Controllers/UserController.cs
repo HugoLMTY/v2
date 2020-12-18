@@ -21,22 +21,17 @@ namespace v2.Controllers
         { return RedirectToAction("Commands", "Home"); }
 
         public ActionResult test()
-        { return RedirectToAction("test", "Home"); }
-
-
+        { return View(); }
         public ActionResult Connexion()
-        { return View(); }
+        { return PartialView(); }
         public ActionResult CreateAccount()
-        { return View(); }
+        { return PartialView(); }
         public ActionResult Profil()
         {
             using (DB_YnovEntities db = new DB_YnovEntities())
             {
 
                 dynamic profilInfos = new ExpandoObject();
-
-
-                
 
                 profilInfos.basket = db.T_Basket.Where(x => x.id_user == T_User.activeUser).ToList();
                 profilInfos.selling = db.T_Product.Where(y => y.id_user == T_User.activeUser).ToList();
@@ -128,6 +123,7 @@ namespace v2.Controllers
         public ActionResult Disconnect()
         {
             Session.Clear();
+            T_User.Clear();
             return RedirectToAction("Index", "Home");
         }
 

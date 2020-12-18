@@ -12,10 +12,10 @@ namespace v2.Controllers
         public ActionResult Index()
         {
 
-            //Conn auto pour les tests
-            Session["CurrentUser"] = 9;
-            T_User.activeUser = 9;
-            T_User.typeUser = 3;
+            ////Conn auto pour les tests
+            //Session["CurrentUser"] = 9;
+            //T_User.activeUser = 9;
+            //T_User.typeUser = 3;
 
             return View(); 
         }
@@ -24,7 +24,7 @@ namespace v2.Controllers
         { return RedirectToAction("Shop","Shop"); }
 
         public ActionResult test()
-        { return RedirectToAction("test", "Shop"); }
+        { return RedirectToAction("test", "User"); }
 
         public ActionResult Profil()
         { return RedirectToAction("Profil","User"); }

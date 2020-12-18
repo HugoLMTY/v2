@@ -25,12 +25,7 @@ namespace v2.Controllers
         { return RedirectToAction("Commands", "Home"); }
 
         public ActionResult test()
-        {
-            using (DB_YnovEntities db = new DB_YnovEntities())
-            {
-                return View(db.T_Product.ToList()); 
-            }
-        }
+        { return RedirectToAction("test", "User"); }
 
         public ActionResult Profil()
         { return RedirectToAction("Profil", "User"); }
