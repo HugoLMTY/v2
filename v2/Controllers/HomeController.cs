@@ -24,15 +24,12 @@ namespace v2.Controllers
         { return RedirectToAction("Shop","Shop"); }
 
         public ActionResult test()
-        { return RedirectToAction("test", "User"); }
+        { return RedirectToAction("test", "Shop"); }
 
         public ActionResult Profil()
         { return RedirectToAction("Profil","User"); }
 
-        public ActionResult Connexion()
-        { return RedirectToAction("Connexion","User"); }
-
-        public ActionResult CreateAccount()
-        { return RedirectToAction("CreateAccount", "User"); }
+        public ActionResult Login()
+        { return RedirectToAction("Login","User"); }
     }
 }

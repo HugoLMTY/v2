@@ -21,11 +21,20 @@ namespace v2.Controllers
         { return RedirectToAction("Commands", "Home"); }
 
         public ActionResult test()
+        { return RedirectToAction("test", "Shop"); }
+
+        public ActionResult Login()
         { return View(); }
+
+        public ActionResult AddProduct()
+        { return RedirectToAction("AddProduct", "Shop"); }
         public ActionResult Connexion()
         { return PartialView(); }
         public ActionResult CreateAccount()
         { return PartialView(); }
+        public ActionResult Settings()
+        { return PartialView(); }
+
         public ActionResult Profil()
         {
             using (DB_YnovEntities db = new DB_YnovEntities())
@@ -35,8 +44,8 @@ namespace v2.Controllers
 
                 profilInfos.basket = db.T_Basket.Where(x => x.id_user == T_User.activeUser).ToList();
                 profilInfos.selling = db.T_Product.Where(y => y.id_user == T_User.activeUser).ToList();
+                profilInfos.settings = db.T_Product.Where(z => z.id_user == T_User.activeUser).ToList();
 
-                
 
                 return View(profilInfos);
             }

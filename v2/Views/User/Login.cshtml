@@ -1,0 +1,18 @@
+﻿@model v2.Models.T_User
+
+<div class="container">
+    <div class="list-group list-group-horizontal" id="connUserList" role="tablist">
+        <a style="font-size:2em; font-weight:normal; font-style:italic; letter-spacing: 1px;" class="list-group-item list-group-item-action text-center active" data-toggle="list" role="tab" href="#userLogin">Se connecter</a>
+        <a style="font-size:2em; font-weight:normal; font-style:italic; letter-spacing: 1px;" class="list-group-item list-group-item-action text-center" data-toggle="list" role="tab" href="#userRegister">Créer un compte</a>
+    </div>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="userLogin" role="tabpanel">
+            @Html.Partial("Connexion")
+        </div>
+
+        <div class="tab-pane" id="userRegister" role="tabpanel">
+            @Html.Partial("CreateAccount")
+        </div>
+    </div>
+</div>

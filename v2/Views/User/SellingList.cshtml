@@ -2,31 +2,30 @@
 
     <table width="85%" class="mx-auto">
         <thead id="sellinglistHeader">
-            <td width="">
-            </td>
-            <td style="text-align:center; font-style:italic; font-size: 1.6em; height:50px; width: 100px;">
-                Articles
-            </td>
+        <td>
+        </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; height:50px; width: 100px;">
+            Articles
+        </td>
 
-            <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 120px">
-                Dimensions
-            </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 120px">
+            Dimensions
+        </td>
 
-            <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 75px;">
-                Prix
-            </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 75px;">
+            Prix
+        </td>
 
-            <td style="text-align:center; font-style:italic; font-size: 1.6em; width:75px;">
-                Référence
-            </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; width:75px;">
+            Référence
+        </td>
 
-            <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 75px">
-                Status
-            </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 75px">
+            Status
+        </td>
 
-            <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 100px">
-                
-            </td>
+        <td style="text-align:center; font-style:italic; font-size: 1.6em; width: 100px">
+        </td>
         </thead>
 
 
@@ -57,42 +56,69 @@
             </td>
         </tr>
 
+        @* Test style product deleted *@
+
+        <tr style="transition:0.2s;" class="sellingList">
+            <td>
+                <img width="150px" style="border-radius:5px; box-shadow: 1px 1px 15px gray" src="~/Ressources/samplePrint_2.jpg" alt="..." />
+            </td>
+            <td style="text-align:center; margin: 50px; font-size: 2em;">
+                sample 5
+            </td>
+            <td style="text-align:center">
+                4 x 6 x 7 (cm)
+            </td>
+            <td style="text-align:center">
+
+                467€
+            </td>
+            <td style="text-align:center">
+                10
+            </td>
+            <td style="text-align:center">
+                sold
+            </td>
+            <td>
+                <button style="width:215px; margin: 15px; margin-left:70px" class="btn btn-danger disabled">Supprimé</button>
+            </td>
+        </tr>
+
         <tr style="height: 20px;">
         </tr>
 
         @foreach (var item in Model.selling)
         {
-        <tr style="transition:0.2s; margin-left:10px" class="sellingList">
-            <td>
-                <img width="150px" style="border-radius:5px; box-shadow: 1px 1px 15px gray" src="@item.path_imgproduct" alt="@item.name_product" />
-            </td>
-            <td style="text-align:center; margin: 50px; font-size: 2em;">
-                @item.name_product
-            </td>
-            <td style="text-align:center">
-                @item.lenght_product x @item.width_product x @item.height_product (cm)
-            </td>
-            <td style="text-align:center">
+            <tr style="transition:0.2s; margin-left:10px" class="sellingList">
+                <td>
+                    <img width="150px" style="border-radius:5px; box-shadow: 1px 1px 15px gray" src="@item.path_imgproduct" alt="@item.name_product" />
+                </td>
+                <td style="text-align:center; margin: 50px; font-size: 2em;">
+                    @item.name_product
+                </td>
+                <td style="text-align:center">
+                    @item.lenght_product x @item.width_product x @item.height_product (cm)
+                </td>
+                <td style="text-align:center">
 
-                @item.price_product€
-            </td>
-            <td style="text-align:center">
-                @item.id_product
-            </td>
-            <td style="text-align:center">
-                pending
-            </td>
-            <td>
+                    @item.price_product€
+                </td>
+                <td style="text-align:center">
+                    @item.id_product
+                </td>
+                <td style="text-align:center">
+                    pending
+                </td>
+                <td>
 
-                <button style="width:220px; margin-left:70px; margin-right: 10px;" class="btn btn-context">Vente</button>
-                <br />
-                <button style="width:100px; margin: 15px; margin-left:70px" class="btn btn-context ">Modifier</button>
-                <button style="width:100px; margin-left:0px" class="btn btn-c btn-danger ">Supprimer</button>
-            </td>
-        </tr>
+                    <button style="width:220px; margin-left:70px; margin-right: 10px;" class="btn btn-context">Vente</button>
+                    <br />
+                    <button style="width:100px; margin: 15px; margin-left:70px" class="btn btn-context ">Modifier</button>
+                    <button style="width:100px; margin-left:0px" class="btn btn-c btn-danger ">Supprimer</button>
+                </td>
+            </tr>
 
-        <tr style="height: 20px;">
-        </tr>
+            <tr style="height: 20px;">
+            </tr>
         }
 
 

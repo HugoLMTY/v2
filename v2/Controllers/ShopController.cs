@@ -25,16 +25,13 @@ namespace v2.Controllers
         { return RedirectToAction("Commands", "Home"); }
 
         public ActionResult test()
-        { return RedirectToAction("test", "User"); }
+        { return View(); }
 
         public ActionResult Profil()
         { return RedirectToAction("Profil", "User"); }
 
-        public ActionResult Connexion()
-        { return RedirectToAction("Connexion", "User"); }
-
-        public ActionResult CreateAccount()
-        { return RedirectToAction("CreateAccount", "User"); }
+        public ActionResult Login()
+        { return RedirectToAction("Login", "User"); }
 
 
         public static string getPathImg(int? id)
@@ -51,9 +48,9 @@ namespace v2.Controllers
         }
 
         public ActionResult Filtering()
-        {
-            return View();
+        { return View(); }
 
-        }
+        public ActionResult AddProduct()
+        { return View(); }
     }
 }

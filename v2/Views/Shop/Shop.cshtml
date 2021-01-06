@@ -12,18 +12,6 @@
     <div class="shopContainer row">
         <div id="filterHolder" class="col-4">
 
-            <h2>Filtres</h2>
-
-            <div class="filterSeparator"></div>
-
-            @Html.EditorFor(Model => Model.name_product, new { placeholder = "Rechercher un produit", autofill = false, @class = "form-control mx-auto" })
-
-            <p>Prix</p>
-            @Html.EditorFor(Model => Model.price_product, new { type = "number", placeholder = "1", autofill = false })
-
-
-            <div class="filterSeparator"></div>
-
         </div>
         <div id="shopContent" class="row col-8">
 

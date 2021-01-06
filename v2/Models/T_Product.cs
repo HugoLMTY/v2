@@ -46,6 +46,6 @@ namespace v2.Models
 
         public static string statusOrder { get; set; }
 
-        public int total_basketitem { get; set; }
+        public static int total_basketitem { get; set; }
     }
 }

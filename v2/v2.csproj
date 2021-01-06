@@ -246,6 +246,9 @@
     <Content Include="Views\Shop\ProductList.cshtml" />
     <Content Include="Views\User\SellingList.cshtml" />
     <Content Include="Views\User\test.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\Settings.cshtml" />
+    <Content Include="Views\Shop\AddProduct.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
