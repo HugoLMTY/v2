@@ -10,8 +10,7 @@ namespace v2.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-
+        { 
             ////Conn auto pour les tests
             //Session["CurrentUser"] = 9;
             //T_User.activeUser = 9;

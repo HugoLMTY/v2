@@ -1,5 +1,4 @@
-﻿@model v2.Models.T_Product
-@using v2.Models
+﻿@using v2.Models
 
 <div id="shopHolder" class="container">
 
@@ -11,11 +10,31 @@
 
     <div class="shopContainer row">
         <div id="filterHolder" class="col-4">
+            @using (Html.BeginForm("FilteringSort", "Shop", FormMethod.Post))
+            {
+
+                @Html.DropDownList("test", new[]
+           {
+               new SelectListItem{Text="Prix ↑", Value="priceUp"},
+               new SelectListItem{Text="Prix ↓", Value="priceDown"},
+               new SelectListItem{Text="Prix ↑", Value="nameUp"},
+               new SelectListItem{Text="Prix ↓", Value="nameDown"}
+           })
+
+
+
+                <label for="filterSortBy">
+                    Trier par:
+                </label>
+
+                <input type="submit" name="name" class="btn btn-context" value="Trier" />
+                <input type="reset" name="name" class="btn" value="Annuler" />
+            }
 
         </div>
         <div id="shopContent" class="row col-8">
 
-            @foreach (var item in T_Product.productList)
+            @foreach (var item in T_Product.productList     )
             {
                 <div class="col-4">
                     <div class="cardWrap">
@@ -41,8 +60,7 @@
                         </div>
                     </div>
                 </div>
-            }
-
+                }
         </div>
     </div>
 </div>

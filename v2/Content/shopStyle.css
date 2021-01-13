@@ -50,3 +50,134 @@
     box-shadow: 1px 1px 10px lightgray;
 }
 
+
+
+
+
+/*----------------------------------------------ZONE--------------------------------------------*/
+
+.zoneBasketInfos {
+    color: #45d245;
+    overflow-y: auto;
+    display: inline-block;
+}
+
+
+.zoneBasketTotal {
+    position: sticky;
+    top: 75px;
+    font-size: 1.5em;
+    height: 500px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+/*----------------------------------------------TEXT--------------------------------------------*/
+
+
+#basketPriceDetails {
+    font-size: 0.69em;
+    color: gray;
+    border-bottom: 1px solid gray;
+}
+
+#basketTotalPrice {
+}
+
+.textPrice {
+    font-style: italic;
+    color: gray;
+    font-size: 0.7em;
+}
+
+.productName {
+    color: black;
+    font-size: 1.2em;
+}
+
+.productInfo {
+    color: gray;
+    font-size: 0.7em;
+}
+
+.productPrice {
+    color: black;
+    font-size: 0.8em;
+}
+
+.productImg {
+    width: 80%;
+}
+
+.basketProduct {
+    line-height: 1;
+    text-transform: lowercase;
+}
+
+.basketQty {
+}
+
+.basketTotalPrice {
+}
+
+.basketRemoveIcon {
+}
+
+/*----------------------------------------------BASKET LINE--------------------------------------------*/
+
+.basketLine {
+    margin: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 120px;
+    /*border: 1px solid black;*/
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
+}
+
+/*----------------------------------------------BASKET PAYEMENT--------------------------------------------*/
+
+.basketPayementDetails {
+    margin: 10px;
+    padding: 15px;
+    /*border: 1px solid black;*/
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
+}
+
+/*----------------------------------------------BASKET COUPON--------------------------------------------*/
+
+.basketReductionCoupon {
+    margin: 10px;
+    padding: 0px 0px;
+    /*border: 1px solid black;*/
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
+}
+
+#basketCoupon, #basketCouponBtn {
+    height: inherit;
+    font-size: 0.7em;
+    margin: 0px;
+}
+
+#basketCoupon {
+    margin: 0px;
+}
+
+#basketCouponBtn {
+    text-align: center;
+    margin: 0px;
+    width: 100%;
+}
+
+.inputCouponDiv, .btnCouponDiv {
+    padding: 0px 0px;
+}
+
+/*----------------------------------------------ITEM--------------------------------------------*/
+
+
+.basketPayementBtn {
+    background: #45d245;
+    width: 100%;
+}

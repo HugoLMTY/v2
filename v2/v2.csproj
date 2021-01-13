@@ -197,6 +197,7 @@
       <DependentUpon>DB_Model.edmx</DependentUpon>
       <LastGenOutput>DB_Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Ressources\sampleCar.jpg" />
     <Content Include="Ressources\samplePrint_32.jpg" />
     <Content Include="Ressources\samplePrint_4.jpg" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />

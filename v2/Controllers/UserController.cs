@@ -15,7 +15,7 @@ namespace v2.Controllers
         { return RedirectToAction("Index","Home"); }
 
         public ActionResult Shop()
-        { return RedirectToAction("Shop", "Home"); }
+        { return RedirectToAction("Shop", "Shop"); }
 
         public ActionResult Commands()
         { return RedirectToAction("Commands", "Home"); }

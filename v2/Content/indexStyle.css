@@ -1,2 +1,25 @@
-﻿#indexImg {
+﻿#indexCarousel{
+    width: 110%;
+    margin-left: -5%;
+}
+
+#indexCarousel img{
+    margin: 0;
+    height: 900px;
+}
+
+.carouphrase, .caroutexte {
+    font-size: 6.9em;
+    text-shadow: 1px 1px 2px black;
+}
+
+.carouinfos{
+    margin-bottom: 350px;
+}
+
+#indexFooter li{
+    color: white;
+    vertical-align: top;
+    display: inline-block;
+    margin: 20px;
 }

@@ -25,6 +25,8 @@ namespace v2.Models
         public int qty_product { get; set; }
         public string color_product { get; set; }
         public int price_product { get; set; }
+        public int minPrice { get; set; }
+        public int maxPrice { get; set; }
         public string desc_product { get; set; }
         public Nullable<int> id_imgproduct { get; set; }
         public string type_product { get; set; }
@@ -47,5 +49,6 @@ namespace v2.Models
         public static string statusOrder { get; set; }
 
         public static int total_basketitem { get; set; }
+
     }
 }

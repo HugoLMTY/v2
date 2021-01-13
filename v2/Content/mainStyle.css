@@ -2,7 +2,7 @@
 /*---------------------------------------MULTI STYLE------------------------------------------------------*/
 
 html {
-background: #30c4fc;
+    /*background: #121212;*/
     margin: 0;
     overflow-x: hidden;
     font-family: bahnschrift;
@@ -37,6 +37,11 @@ background: #30c4fc;
 }
 
 /*---------------------------------------NAV------------------------------------------------------*/
+
+nav{
+    border-radius: 0 !important;
+    margin: 0 !important;
+}
 
 nav li{
     margin-top: 25px;
