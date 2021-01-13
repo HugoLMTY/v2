@@ -28,7 +28,7 @@ namespace v2.Controllers
             {
                 T_Product.productList = db.T_Product.ToList();
             }
-            return View(T_Product.productList   );
+            return View(T_Product.productList);
         }
 
         //#region Filters
@@ -134,14 +134,14 @@ namespace v2.Controllers
 
 
 
-            //minPrice = model.minPrice;
-            //maxPrice = model.maxPrice;
+        //minPrice = model.minPrice;
+        //maxPrice = model.maxPrice;
 
-            //height = model.height_product;
-            //lenght = model.lenght_product;
-            //width = model.width_product;
+        //height = model.height_product;
+        //lenght = model.lenght_product;
+        //width = model.width_product;
 
-            //color = model.color_product;
+        //color = model.color_product;
         //}
 
         public ActionResult Commands()

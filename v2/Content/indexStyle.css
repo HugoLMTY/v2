@@ -1,6 +1,6 @@
 ﻿#indexCarousel{
-    width: 110%;
-    margin-left: -5%;
+    width: 100%;
+    /*margin-left: -5%;*/
 }
 
 #indexCarousel img{
@@ -22,4 +22,8 @@
     vertical-align: top;
     display: inline-block;
     margin: 20px;
+}
+
+#indexFooter a{
+    color: white;
 }

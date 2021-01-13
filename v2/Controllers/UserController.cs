@@ -12,7 +12,7 @@ namespace v2.Controllers
     {
 
         public ActionResult Index()
-        { return RedirectToAction("Index","Home"); }
+        { return RedirectToAction("Index", "Home"); }
 
         public ActionResult Shop()
         { return RedirectToAction("Shop", "Shop"); }
@@ -158,9 +158,4 @@ namespace v2.Controllers
         }
 
     }
-
-
-
-
-
 }
